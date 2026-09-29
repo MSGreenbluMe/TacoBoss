@@ -10,7 +10,7 @@
 <meta property="og:title" content="Taco Boss · Mexická cantina v Hradci Králové">
 <meta property="og:description" content="Tacos jako z Mexika, salsy od mírné po pekelnou a vychlazená michelada. ¡Órale!">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:image" content="img/logo.png">
+<meta property="og:image" content="img/og.jpg">
 <!-- TODO: po nasazení doplnit og:url a absolutní og:image (ideálně fotka tacos 1200×630) -->
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
@@ -37,7 +37,7 @@
     "https://www.facebook.com/tacobosscz/",
     "https://www.foodora.cz/restaurant/hx6p/taco-boss-hx6p"
   ],
-  "image": "img/logo.png"
+  "image": "img/og.jpg"
 }
 </script>
 <style>
@@ -334,6 +334,23 @@ main{overflow-x:clip}
 .menu-note{margin-top:clamp(40px,5vw,64px);font-size:.92rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
 .menu-note a{font-weight:700}
 
+/* ───────── Gallery ───────── */
+.gallery{--zig:var(--paper);background:var(--paper)}
+.shots{list-style:none;margin:clamp(28px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,26px)}
+.shot{
+  position:relative;aspect-ratio:4/3;overflow:hidden;background:#eceae6;
+  border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);
+}
+.shot.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.shot:hover img{transform:scale(1.07) rotate(-1deg)}
+.shot span{
+  position:absolute;left:10px;bottom:10px;background:var(--paper);border:2px solid var(--ink);border-radius:999px;
+  padding:.1em .8em;font-family:var(--hand);font-size:1.15rem;line-height:1.3;
+}
+.shot.big span{font-size:1.5rem;background:var(--corn)}
+@media (max-width:720px){.shots{grid-template-columns:repeat(2,1fr)}.shot span{font-size:.95rem;left:6px;bottom:6px}}
+
 /* ───────── Cantina ───────── */
 .cantina{
   --zig:var(--ink);background:var(--ink);color:var(--paper);
@@ -356,10 +373,13 @@ main{overflow-x:clip}
   break-inside:avoid;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 10px;
   padding:16px 0;border-bottom:1px dashed rgba(246,236,214,.22);
 }
+.drink{grid-template-columns:64px auto 1fr auto}
+.drink img{grid-row:span 2;align-self:center;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--corn);background:#fff}
+
 .drink .n{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.3rem)}
 .drink .dots{border-bottom:3px dotted rgba(246,236,214,.3);translate:0 -6px}
 .drink .p{font-family:var(--display);color:var(--corn);white-space:nowrap}
-.drink .d{grid-column:1/-1;font-size:.9rem;color:rgba(246,236,214,.66)}
+.drink .d{grid-column:2/-1;font-size:.9rem;color:rgba(246,236,214,.66)}
 
 /* ───────── About ───────── */
 .about{--zig:var(--paper)}
@@ -751,8 +771,29 @@ main{overflow-x:clip}
   </div>
 </section>
 
+<!-- ═════════ FOTKY ═════════ -->
+<section class="section gallery zig" id="foto">
+  <div class="wrap">
+    <div data-reveal>
+      <p class="kicker">¡Mira!</p>
+      <h2 class="h2">Takhle to vypadá</h2>
+    </div>
+    <ul class="shots">
+      <li class="shot big" data-reveal style="--d:0"><img src="img/food/cover.webp" alt="Tacos, burrito a quesadilla na barevných talířích" width="1600" height="900" loading="lazy"><span>Fiesta na talíři</span></li>
+      <li class="shot" data-reveal style="--d:1"><img src="img/food/beef-tacos.webp" alt="Hovězí tacos s guacamole a nakládanou cibulí" width="900" height="506" loading="lazy"><span>Tacos · hovězí</span></li>
+      <li class="shot" data-reveal style="--d:2"><img src="img/food/chicken-tacos.webp" alt="Kuřecí tacos s guacamole" width="900" height="506" loading="lazy"><span>Tacos · kuřecí</span></li>
+      <li class="shot" data-reveal style="--d:3"><img src="img/food/vegan-tacos.webp" alt="Tacos s tofu fajitas" width="900" height="506" loading="lazy"><span>Tacos · tofu</span></li>
+      <li class="shot" data-reveal style="--d:0"><img src="img/food/beef-burrito.webp" alt="Hovězí burrito s tortilla chipsem a guacamole" width="900" height="506" loading="lazy"><span>Burrito</span></li>
+      <li class="shot" data-reveal style="--d:1"><img src="img/food/beef-quesadilla.webp" alt="Hovězí quesadilla" width="900" height="506" loading="lazy"><span>Quesadilla · hovězí</span></li>
+      <li class="shot" data-reveal style="--d:2"><img src="img/food/vegan-quesadilla.webp" alt="Quesadilla s tofu fajitas" width="900" height="506" loading="lazy"><span>Quesadilla · tofu</span></li>
+      <li class="shot" data-reveal style="--d:3"><img src="img/food/nachos.webp" alt="Nachos se sýrem, jalapeños a guacamole" width="900" height="506" loading="lazy"><span>Nachos</span></li>
+      <li class="shot" data-reveal style="--d:0"><img src="img/food/closeup.webp" alt="Tacos a burrito zblízka" width="900" height="506" loading="lazy"><span>¡Buen provecho!</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ═════════ CANTINA ═════════ -->
-<!-- TODO: nápoje a ceny jsou NÁVRH -->
+<!-- Nápoje podle fotek od Alejandra. TODO: ceny jsou NÁVRH -->
 <section class="section cantina zig" id="cantina">
   <div class="wrap">
     <div class="cantina-head">
@@ -763,14 +804,10 @@ main{overflow-x:clip}
       <p data-reveal style="--d:1">Něco na zapití. A hlavně na zchlazení po pálivé omáčce.<span class="hand">¡Salud!</span></p>
     </div>
     <ul class="drinks">
-      <li class="drink"><span class="n">Michelada</span><span class="dots"></span><span class="p">89 Kč</span><span class="d">Pivo, limeta, chilli a sůl na okraji</span></li>
-      <li class="drink"><span class="n">Margarita</span><span class="dots"></span><span class="p">149 Kč</span><span class="d">Tequila, triple sec a čerstvá limeta</span></li>
-      <li class="drink"><span class="n">Mezcal</span><span class="dots"></span><span class="p">99 Kč</span><span class="d">Kouřový panák s pomerančem</span></li>
-      <li class="drink"><span class="n">Mexické pivo</span><span class="dots"></span><span class="p">79 Kč</span><span class="d">Lahvové, podává se s limetou</span></li>
-      <li class="drink"><span class="n">Točená 12°</span><span class="dots"></span><span class="p">55 Kč</span><span class="d">0,5 l – pořád jsme v Česku</span></li>
-      <li class="drink"><span class="n">Horchata</span><span class="dots"></span><span class="p">69 Kč</span><span class="d">Rýžový nápoj se skořicí, nealko</span></li>
-      <li class="drink"><span class="n">Agua de Jamaica</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Ledový ibiškový čaj</span></li>
-      <li class="drink"><span class="n">Jarritos</span><span class="dots"></span><span class="p">65 Kč</span><span class="d">Mexické limonády, různé příchutě</span></li>
+      <li class="drink"><img src="img/food/corona.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Corona</span><span class="dots"></span><span class="p">79 Kč</span><span class="d">Mexické pivo, podává se s limetou</span></li>
+      <li class="drink"><img src="img/food/jamaica.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Agua de Jamaica</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Ledový ibiškový nápoj, osvěžující a lehce kyselý</span></li>
+      <li class="drink"><img src="img/food/horchata.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Horchata</span><span class="dots"></span><span class="p">69 Kč</span><span class="d">Rýžový nápoj se skořicí, nealko</span></li>
+      <li class="drink"><img src="img/food/chips.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Chipsy Habanero Piña</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Tortilla chipsy s habanerem a ananasem, na zakousnutí</span></li>
     </ul>
   </div>
 </section>
