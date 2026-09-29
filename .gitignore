@@ -2,3 +2,6 @@
 .DS_Store
 Thumbs.db
 Fotky jedal/
+
+.vercel
+.env*
