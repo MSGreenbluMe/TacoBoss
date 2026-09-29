@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taco Boss · Mexická cantina v Hradci Králové</title>
+<meta name="description" content="Taco Boss – tacos, burrito, quesadilla a nachos v Hradci Králové (Kukleny, Pražská tř.). Catering a taco bar na svatby, firemní akce i festivaly.">
+<meta name="theme-color" content="#e4007c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taco Boss · Mexická cantina v Hradci Králové">
+<meta property="og:description" content="Tacos jako z Mexika, salsy od mírné po pekelnou a vychlazená michelada. ¡Órale!">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="img/logo.png">
+<!-- TODO: po nasazení doplnit og:url a absolutní og:image (ideálně fotka tacos 1200×630) -->
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat+Brush&family=Chango&family=Rye&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Taco Boss",
+  "servesCuisine": "Mexican",
+  "description": "Mexická cantina a taco catering v Hradci Králové.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pražská tř. 628/51",
+    "addressLocality": "Hradec Králové",
+    "postalCode": "500 04",
+    "addressCountry": "CZ"
+  },
+  "sameAs": [
+    "https://www.instagram.com/tacoboss/",
+    "https://www.facebook.com/tacobosscz/",
+    "https://www.foodora.cz/restaurant/hx6p/taco-boss-hx6p"
+  ],
+  "image": "img/logo.png"
+}
+</script>
+<style>
+:root{
+  --ink:#1a1210;
+  --ink-soft:#4a3a33;
+  --paper:#f6ecd6;
+  --paper-2:#efdfbf;
+  --chili:#d62b2b;
+  --rosa:#e4007c;
+  --marigold:#ffa400;
+  --corn:#ffd23f;
+  --cilantro:#178a4e;
+  --agave:#0fa3a3;
+  --cocoa:#7a3b1d;
+
+  --display:"Chango","Arial Black",sans-serif;
+  --serif:"Rye",Georgia,serif;
+  --hand:"Caveat Brush","Comic Sans MS",cursive;
+  --body:"Archivo",system-ui,sans-serif;
+
+  --gutter:clamp(16px,4vw,40px);
+  --maxw:1240px;
+  --shadow:6px 6px 0 var(--ink);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(16px,.45vw + 14px,18px);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+/* risograph grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;
+  opacity:.12;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+main{overflow-x:clip}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:6px}
+.halftone{
+  background-image:radial-gradient(rgba(26,18,16,.13) 1px,transparent 1.7px);
+  background-size:11px 11px;
+}
+
+/* ───────── Papel picado ───────── */
+.picado{
+  position:relative;height:78px;overflow:hidden;
+  display:flex;justify-content:center;gap:8px;padding-top:5px;
+}
+.picado::before{
+  content:"";position:absolute;left:0;right:0;top:5px;height:2px;
+  background:currentColor;opacity:.55;
+}
+.picado .flag{flex:0 0 auto;width:52px;height:64px}
+.js .picado .flag{animation:drop .9s cubic-bezier(.2,1.5,.4,1) both;animation-delay:calc(var(--i) * 45ms)}
+.picado .flag svg{
+  width:100%;height:100%;transform-origin:50% 0;
+  animation:sway 3.6s ease-in-out infinite alternate;
+  animation-delay:calc(var(--i) * -.41s);
+}
+.picado .flag:nth-child(5n+1){color:var(--rosa)}
+.picado .flag:nth-child(5n+2){color:var(--marigold)}
+.picado .flag:nth-child(5n+3){color:var(--agave)}
+.picado .flag:nth-child(5n+4){color:var(--cilantro)}
+.picado .flag:nth-child(5n+5){color:var(--chili)}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+@keyframes drop{from{transform:translateY(-110%)}to{transform:none}}
+
+/* ───────── Top bar ───────── */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-block:3px solid var(--ink);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:1.3rem;letter-spacing:.01em;white-space:nowrap}
+.brand img{width:46px;height:46px;object-fit:contain;transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.brand:hover img{transform:rotate(-12deg) scale(1.12)}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);list-style:none;margin:0;padding:0}
+.nav-links a{
+  text-decoration:none;font-weight:800;font-stretch:85%;text-transform:uppercase;
+  letter-spacing:.08em;font-size:.82rem;padding:.3em 0;
+  background:linear-gradient(var(--rosa),var(--rosa)) left bottom/0 3px no-repeat;
+  transition:background-size .25s ease;
+}
+.nav-links a:hover{background-size:100% 3px}
+.nav-links .pill{
+  background:var(--ink);color:var(--paper);padding:.6em 1.1em;border-radius:999px;
+  display:inline-flex;align-items:center;gap:.5em;transition:background .2s,transform .2s;
+}
+.nav-links .pill:hover{background:var(--rosa);transform:rotate(-3deg)}
+.nav-links .pill svg{width:16px;height:16px}
+@media (max-width:860px){.nav-links li:not(.keep){display:none}}
+
+/* ───────── Buttons ───────── */
+.btn{
+  display:inline-flex;align-items:center;gap:.55em;cursor:pointer;
+  font-family:var(--body);font-weight:800;font-stretch:88%;text-transform:uppercase;letter-spacing:.06em;
+  font-size:.92rem;line-height:1;padding:1em 1.5em;
+  border:3px solid var(--ink);border-radius:999px;text-decoration:none;
+  background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--ink);
+  transition:transform .15s ease,box-shadow .15s ease,background .2s;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-chili{background:var(--chili);color:#fff}
+.btn-corn{background:var(--corn)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#000}
+
+/* ───────── Shared section heads ───────── */
+.section{position:relative;padding-block:clamp(72px,10vw,132px)}
+.kicker{
+  font-family:var(--serif);font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--chili);display:inline-flex;align-items:center;gap:.6em;
+}
+.kicker::before{content:"✦";font-size:.8em}
+.h2{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(2.6rem,7.2vw,5.6rem);line-height:1;letter-spacing:-.005em;
+  margin:.18em 0 .28em;
+}
+.lead{font-size:clamp(1.05rem,.6vw + .9rem,1.25rem);max-width:52ch;font-weight:500}
+.hand{font-family:var(--hand);font-weight:400}
+
+/* zigzag section edge */
+.zig{position:relative}
+.zig::before{
+  content:"";position:absolute;left:0;right:0;top:-15px;height:16px;
+  background:
+    linear-gradient(-45deg,var(--zig) 8px,transparent 0) 0 100%/16px 16px repeat-x,
+    linear-gradient(45deg,var(--zig) 8px,transparent 0) 0 100%/16px 16px repeat-x;
+}
+
+/* ───────── Hero ───────── */
+.hero{position:relative;padding-block:clamp(28px,5vw,64px) clamp(84px,10vw,128px)}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(24px,4vw,56px);align-items:center}
+.eyebrow{
+  font-family:var(--serif);letter-spacing:.14em;text-transform:uppercase;
+  font-size:clamp(.82rem,1.1vw,1rem);display:flex;align-items:center;gap:.8em;
+}
+.eyebrow::before,.eyebrow::after{content:"";height:2px;width:36px;background:currentColor}
+.wordmark{
+  position:relative;font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(3.6rem,9vw,8.4rem);line-height:.84;letter-spacing:-.01em;
+  margin:.5em 0 .32em;
+}
+@supports (font-size:1cqi){.wordmark{font-size:min(20cqi,9.2rem)}}
+.hero-copy{container-type:inline-size}
+.wordmark .w{display:block;white-space:nowrap}
+.wordmark .w1{color:var(--ink);text-shadow:.05em .05em 0 var(--rosa)}
+.wordmark .w2{color:var(--chili);text-shadow:.05em .05em 0 var(--ink);padding-left:1.28em}
+.wordmark .ltr{display:inline-block}
+.js .wordmark .ltr{animation:ltr-in .8s cubic-bezier(.2,1.6,.4,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
+@keyframes ltr-in{from{transform:translateY(-70%) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
+.wordmark .stache{
+  position:absolute;left:.02em;top:1.06em;width:1.12em;color:var(--ink);
+  transform-origin:50% 40%;rotate:-8deg;
+}
+.js .wordmark .stache{animation:stache-in .9s cubic-bezier(.2,1.6,.4,1) .75s both}
+.wordmark .stache:hover{animation:wiggle .6s ease-in-out}
+.wordmark .sombrero{position:absolute;left:-.14em;top:-.36em;width:1.02em;rotate:-12deg;transform-origin:50% 100%}
+.js .wordmark .sombrero{animation:hat-in .8s cubic-bezier(.2,1.6,.4,1) .55s both}
+@keyframes hat-in{from{transform:translateY(-80%) rotate(-30deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes stache-in{from{transform:scale(0) rotate(40deg)}to{transform:none}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(10deg)}50%{transform:rotate(-8deg)}75%{transform:rotate(5deg)}}
+
+.hero .lead{max-width:36ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.status{
+  display:inline-flex;align-items:center;gap:.6em;margin-top:26px;
+  border:2px solid var(--ink);border-radius:999px;background:var(--paper);
+  padding:.45em 1em;font-weight:700;font-size:.88rem;
+}
+.status .dot{width:10px;height:10px;border-radius:50%;background:var(--chili);flex:none}
+.status.open .dot{background:var(--cilantro);box-shadow:0 0 0 0 rgba(23,138,78,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(23,138,78,0)}100%{box-shadow:0 0 0 0 rgba(23,138,78,0)}}
+
+.hero-art{position:relative;display:grid;place-items:center;min-height:clamp(420px,46vw,560px)}
+.sunburst{
+  position:absolute;inset:-12%;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,var(--marigold) 0deg 8deg,transparent 8deg 16deg);
+  -webkit-mask:radial-gradient(circle,#000 18%,transparent 66%);mask:radial-gradient(circle,#000 18%,transparent 66%);
+  opacity:.6;animation:spin 90s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-card{width:min(330px,74vw);rotate:5deg;z-index:1}
+.js .hero-card{animation:card-in 1.1s cubic-bezier(.2,1.35,.35,1) .35s both}
+@keyframes card-in{from{transform:translateY(40px) rotate(-18deg) scale(.8);opacity:0}to{transform:none;opacity:1}}
+.hero-card .loteria{transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
+.hero-card:hover .loteria{transform:rotate(-4deg) scale(1.03)}
+.stamp{position:absolute;right:clamp(-10px,1vw,20px);bottom:clamp(0px,3vw,36px);width:clamp(112px,12vw,150px);aspect-ratio:1;z-index:2;rotate:-8deg}
+.stamp .ring{position:absolute;inset:0;animation:spin 22s linear infinite}
+.stamp .core{position:absolute;inset:30%;display:grid;place-items:center}
+.stamp .core svg{width:100%;color:var(--corn)}
+.orale{
+  position:absolute;right:clamp(-8px,.5vw,12px);top:-18px;z-index:2;text-align:right;
+  font-family:var(--hand);font-size:clamp(1.8rem,3vw,2.5rem);color:var(--rosa);rotate:8deg;line-height:1;
+}
+.orale svg{width:64px;margin:4px 0 0 auto;transform:scaleX(-1) rotate(-10deg);color:var(--rosa)}
+
+/* ───────── Lotería card ───────── */
+.loteria{
+  position:relative;background:var(--paper);border:3px solid var(--ink);border-radius:12px;
+  padding:8px;box-shadow:var(--shadow);
+}
+.loteria .face{
+  position:relative;aspect-ratio:5/7;overflow:hidden;border:2.5px solid var(--ink);border-radius:4px;
+  display:grid;grid-template-rows:auto 1fr auto;background-color:var(--bg,var(--agave));
+  background-image:radial-gradient(rgba(26,18,16,.14) 1px,transparent 1.6px);background-size:8px 8px;
+}
+.loteria .num{font-family:var(--serif);font-size:1.1rem;line-height:1;padding:.45rem .55rem 0}
+.loteria .art{display:grid;place-items:center;padding:2% 9% 4%;min-height:0}
+.loteria .art svg{width:100%;height:100%;overflow:visible}
+.loteria .art img{width:100%;height:auto;filter:drop-shadow(3px 4px 0 rgba(26,18,16,.28))}
+.loteria .name{
+  font-family:var(--serif);text-align:center;text-transform:uppercase;white-space:nowrap;
+  background:var(--paper);border-top:2.5px solid var(--ink);
+  font-size:clamp(.9rem,1.35vw,1.15rem);letter-spacing:.05em;padding:.45em .25em .4em;
+}
+.hero-card .num{font-size:1.5rem;padding:.6rem .75rem 0}
+.hero-card .name{font-size:clamp(1.3rem,2.2vw,1.75rem)}
+
+/* illustration strokes */
+.art path,.art circle,.art ellipse,.art rect,.art line,.art polygon{
+  stroke:var(--ink);stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round;
+}
+.art .ns{stroke:none}
+.art .thin{stroke-width:2}
+.art .fn{fill:none}
+
+/* ───────── Marquee ───────── */
+.marquee{
+  position:relative;z-index:3;background:var(--ink);color:var(--corn);
+  width:104%;margin:-26px -2% 0;rotate:-1.6deg;overflow:hidden;
+  border-block:3px solid var(--ink);box-shadow:0 6px 0 var(--rosa);
+}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.marquee span{
+  font-family:var(--display);font-size:clamp(1.3rem,2.6vw,2.1rem);text-transform:uppercase;
+  padding:.45em 0;white-space:nowrap;display:flex;align-items:center;
+}
+.marquee span i{font-style:normal;color:var(--rosa);padding-inline:.7em;font-size:.8em}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ───────── Menu (Lotería) ───────── */
+.menu{--zig:var(--paper-2);background:var(--paper-2)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px;margin-bottom:clamp(40px,5vw,64px)}
+.shuffle-box{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.shuffle-result{font-family:var(--hand);font-size:clamp(1.3rem,2vw,1.6rem);color:var(--rosa);min-height:1.5em;line-height:1.2}
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(36px,4vw,56px) clamp(18px,2.6vw,36px);list-style:none;margin:0;padding:0}
+@media (max-width:1040px){.dishes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.dishes{grid-template-columns:repeat(2,1fr);gap:34px 14px}}
+.dish{--tilt:-1.4deg}
+.dish:nth-child(even){--tilt:1.2deg}
+.dish:nth-child(3n){--tilt:-.5deg}
+.dish .loteria{transform:rotate(var(--tilt));transition:transform .35s cubic-bezier(.2,1.3,.4,1),box-shadow .25s ease}
+.dish:hover .loteria{transform:rotate(0) translateY(-8px) scale(1.02);box-shadow:10px 12px 0 var(--ink)}
+.dish.flash .loteria{transform:rotate(0) translateY(-10px) scale(1.04);box-shadow:10px 12px 0 var(--rosa)}
+.dish.winner .loteria{transform:translateY(-12px) rotate(-2deg) scale(1.05);box-shadow:10px 12px 0 var(--rosa);z-index:2}
+.dish.winner .face::after{
+  content:"¡Lotería!";position:absolute;left:50%;top:44%;translate:-50% -50%;rotate:-16deg;
+  font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.6rem);color:var(--rosa);white-space:nowrap;
+  border:3px solid var(--rosa);border-radius:6px;padding:.15em .5em;background:rgba(246,236,214,.92);
+  animation:stamp .45s cubic-bezier(.2,1.6,.4,1) both;
+}
+@keyframes stamp{from{scale:2.6;opacity:0}to{scale:1;opacity:1}}
+.dish h3{
+  display:flex;justify-content:space-between;align-items:baseline;gap:.6em;
+  margin:1.15em 0 .3em;font-weight:800;font-stretch:85%;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.2;
+}
+.price{font-family:var(--display);font-weight:400;color:var(--chili);white-space:nowrap;font-size:.95em}
+.dish p{font-size:.92rem;line-height:1.45;color:var(--ink-soft)}
+.variants{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:12px 0 0;padding:0}
+.variants li{border:2px solid var(--ink);border-radius:999px;padding:.2em .7em;font-size:.78rem;font-weight:700;font-stretch:88%;background:var(--paper)}
+.variants li:last-child{background:#c9e07a}
+@media (max-width:720px){
+  .dish h3{flex-direction:column;gap:.15em}
+  .dish p{font-size:.86rem}
+}
+.menu-note{margin-top:clamp(40px,5vw,64px);font-size:.92rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
+.menu-note a{font-weight:700}
+
+/* ───────── Cantina ───────── */
+.cantina{
+  --zig:var(--ink);background:var(--ink);color:var(--paper);
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 14px,transparent 14px 28px);
+}
+.cantina .kicker{color:var(--corn)}
+.cantina-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:clamp(32px,4vw,52px)}
+.neon{
+  font-family:var(--hand);font-weight:400;font-size:clamp(3.4rem,9vw,7.2rem);line-height:.95;margin-top:.12em;
+  color:#ffe3f2;
+  text-shadow:0 0 3px #fff,0 0 12px var(--rosa),0 0 28px var(--rosa),0 0 64px var(--rosa);
+  animation:flicker 7s infinite;
+}
+@keyframes flicker{0%,17%,21%,24%,58%,62%,100%{opacity:1}19%,23%,60%{opacity:.5}}
+.cantina-head p{max-width:34ch;color:rgba(246,236,214,.8)}
+.cantina-head .hand{color:var(--corn);font-size:1.7rem;display:block;margin-top:4px;rotate:-3deg}
+.drinks{list-style:none;margin:0;padding:0;columns:2;column-gap:clamp(32px,6vw,80px)}
+@media (max-width:760px){.drinks{columns:1}}
+.drink{
+  break-inside:avoid;display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 10px;
+  padding:16px 0;border-bottom:1px dashed rgba(246,236,214,.22);
+}
+.drink .n{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.3rem)}
+.drink .dots{border-bottom:3px dotted rgba(246,236,214,.3);translate:0 -6px}
+.drink .p{font-family:var(--display);color:var(--corn);white-space:nowrap}
+.drink .d{grid-column:1/-1;font-size:.9rem;color:rgba(246,236,214,.66)}
+
+/* ───────── About ───────── */
+.about{--zig:var(--paper)}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,88px);align-items:center}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+.about-media{display:grid;justify-items:start}
+.polaroid{
+  margin:0;width:min(420px,88%);background:#fffaf0;border:3px solid var(--ink);border-radius:6px;
+  padding:12px 12px 0;box-shadow:var(--shadow);rotate:2.5deg;justify-self:end;
+}
+.polaroid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:2px solid var(--ink)}
+.polaroid figcaption{font-family:var(--hand);font-size:1.5rem;text-align:center;padding:.35em 0 .45em;color:var(--ink)}
+.about-media .quote-card{margin-top:-56px;width:min(440px,92%);z-index:1}
+.quote-card{
+  position:relative;margin:0;background:var(--corn);border:3px solid var(--ink);border-radius:20px;
+  padding:clamp(28px,4vw,48px);box-shadow:10px 10px 0 var(--ink);rotate:-1.5deg;
+}
+.quote-card blockquote{margin:0;font-family:var(--display);font-size:clamp(1.7rem,3.1vw,2.6rem);line-height:1.08}
+.quote-card figcaption{margin-top:18px;font-weight:700;font-size:.92rem;display:flex;align-items:center;gap:10px}
+.quote-card figcaption svg{width:54px}
+.quote-card .qm{
+  position:absolute;top:-38px;right:22px;font-family:var(--display);font-size:7rem;line-height:1;color:var(--rosa);
+  text-shadow:4px 4px 0 var(--ink);
+}
+.quote-card .big-stache{
+  position:absolute;right:-26px;bottom:-34px;width:150px;color:var(--ink);rotate:12deg;transition:rotate .4s cubic-bezier(.2,1.6,.4,1);
+}
+.quote-card:hover .big-stache{rotate:-8deg}
+.about-copy .lead{margin-bottom:26px}
+.pillars{display:grid;gap:16px;list-style:none;margin:0;padding:0}
+.pillar{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  background:var(--paper);border:3px solid var(--ink);border-radius:16px;padding:18px 20px;
+  box-shadow:4px 4px 0 var(--ink);transition:transform .2s,box-shadow .2s;
+}
+.pillar:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.pillar .no{font-family:var(--display);font-size:2rem;line-height:1;color:var(--rosa);min-width:1.6em}
+.pillar:nth-child(2) .no{color:var(--agave)}
+.pillar:nth-child(3) .no{color:var(--cilantro)}
+.pillar h3{font-weight:800;font-stretch:88%;font-size:1.15rem;margin-bottom:.15em}
+.pillar p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ───────── Fiesta / catering ───────── */
+.fiesta{--zig:var(--rosa);background:var(--rosa);color:#fff}
+.fiesta .kicker{color:var(--corn)}
+.fiesta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,88px);align-items:center}
+@media (max-width:900px){.fiesta-grid{grid-template-columns:1fr}}
+.fiesta .h2{text-shadow:.05em .05em 0 var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:26px 0 30px;padding:0}
+.tags li{border:2px solid #fff;border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.92rem}
+.write-us{font-family:var(--hand);font-size:clamp(1.5rem,2.4vw,2rem);color:var(--corn);margin-top:22px;rotate:-2deg}
+.tickets{display:grid;gap:22px;justify-items:center}
+.ticket-stack{display:grid;gap:22px;justify-items:center;width:100%;filter:drop-shadow(6px 6px 0 var(--ink))}
+.tickets-label{font-family:var(--serif);letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:var(--corn)}
+.ticket{
+  width:min(420px,100%);display:grid;grid-template-columns:1fr auto;color:var(--ink);background:var(--paper);
+  border-radius:12px;
+  -webkit-mask:radial-gradient(circle at 0 50%,transparent 12px,#000 12.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 12px,#000 12.5px) right/51% 100% no-repeat;
+          mask:radial-gradient(circle at 0 50%,transparent 12px,#000 12.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 12px,#000 12.5px) right/51% 100% no-repeat;
+  transition:rotate .3s cubic-bezier(.2,1.5,.4,1);
+}
+.ticket:nth-child(2){rotate:-3deg}
+.ticket:nth-child(3){rotate:2.5deg;background:var(--corn)}
+.ticket:hover{rotate:0deg}
+.ticket .main{padding:18px 22px 18px 28px}
+.ticket .main small{display:block;font-weight:800;font-stretch:85%;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--chili)}
+.ticket .main strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.75rem);line-height:1.05;margin-top:4px}
+.ticket .stub{
+  border-left:3px dashed var(--ink);padding:10px 22px 10px 18px;display:grid;place-items:center;
+  font-family:var(--serif);font-size:1.5rem;
+}
+.ticket .stub span{writing-mode:vertical-rl;rotate:180deg;letter-spacing:.12em;font-size:.95rem}
+
+/* ───────── Instagram strip ───────── */
+.ig{background:var(--corn);border-block:3px solid var(--ink);padding-block:clamp(40px,6vw,72px);overflow:hidden}
+.ig .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 40px}
+.ig-handle{
+  font-family:var(--display);font-size:clamp(2.4rem,8vw,6.2rem);line-height:.9;text-decoration:none;
+  display:block;margin-top:.1em;transition:color .2s;
+}
+.ig-handle:hover{color:var(--rosa)}
+.ig p{max-width:34ch;font-weight:600;margin:10px 0 18px}
+
+/* ───────── Visit ───────── */
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:stretch}
+@media (max-width:900px){.visit-grid{grid-template-columns:1fr}}
+.info{
+  background:var(--paper);border:3px solid var(--ink);border-radius:20px;box-shadow:var(--shadow);
+  padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:20px;
+}
+.info address{font-style:normal;font-size:clamp(1.15rem,1.6vw,1.35rem);font-weight:700;line-height:1.35}
+.info address strong{font-family:var(--display);font-weight:400;font-size:1.2em;display:block;margin-bottom:4px}
+.info .status{margin-top:0;align-self:flex-start}
+.hours{width:100%;border-collapse:collapse;font-size:.98rem}
+.hours th,.hours td{padding:.55em .6em;border-bottom:2px dashed rgba(26,18,16,.18);text-align:left}
+.hours th{font-weight:600}
+.hours td{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.hours tr.today{background:var(--corn)}
+.hours tr.today th{font-weight:800}
+.hours tr.today th::after{content:"dnes";margin-left:.6em;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;background:var(--ink);color:var(--paper);border-radius:999px;padding:.15em .6em;vertical-align:middle}
+.hours .closed{color:var(--chili)}
+.info .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto}
+.map{
+  position:relative;min-height:420px;border:3px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+  background:var(--paper-2);
+}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) sepia(.3) contrast(1.05)}
+.map .pin-label{
+  position:absolute;left:16px;bottom:16px;z-index:1;background:var(--ink);color:var(--paper);border-radius:999px;
+  padding:.5em 1em;font-weight:800;font-size:.85rem;letter-spacing:.04em;pointer-events:none;
+}
+
+/* ───────── Footer ───────── */
+.footer{background:var(--ink);color:var(--paper);overflow:hidden;padding-bottom:40px}
+.footer .picado{color:var(--paper)}
+.giant{
+  font-family:var(--display);text-transform:uppercase;text-align:center;white-space:nowrap;
+  font-size:12vw;line-height:.9;margin:clamp(28px,4vw,52px) 0 clamp(22px,3vw,36px);
+  color:transparent;-webkit-text-stroke:2px var(--paper);transition:color .3s;user-select:none;
+}
+@supports (font-size:1cqi){.giant{font-size:12cqi}}
+.footer .wrap{container-type:inline-size}
+.giant:hover{color:var(--rosa);-webkit-text-stroke-color:var(--rosa)}
+.foot-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;font-size:.92rem}
+.foot-row .socials{display:flex;gap:10px}
+.foot-row .socials a{
+  width:46px;height:46px;border:2px solid var(--paper);border-radius:50%;display:grid;place-items:center;
+  transition:background .2s,color .2s,transform .2s;
+}
+.foot-row .socials a:hover{background:var(--rosa);border-color:var(--rosa);transform:rotate(-10deg)}
+.foot-row .socials svg{width:20px;height:20px}
+.foot-row .made{font-family:var(--hand);font-size:1.4rem;color:var(--corn)}
+.foot-row small{opacity:.7}
+
+/* ───────── Mobile action bar ───────── */
+.mbar{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;
+  display:none;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;
+  background:var(--ink);border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.mbar a{
+  color:var(--paper);text-decoration:none;text-align:center;border-radius:999px;
+  font-weight:800;font-stretch:85%;text-transform:uppercase;letter-spacing:.07em;font-size:.78rem;padding:.95em .3em;
+}
+.mbar a.hot{background:var(--rosa)}
+@media (max-width:720px){
+  .mbar{display:grid}
+  body{padding-bottom:88px}
+}
+
+/* ───────── Responsive hero ───────── */
+@media (max-width:520px){
+  .eyebrow{letter-spacing:.08em;font-size:.76rem}
+  .eyebrow::after{display:none}
+  .quote-card .big-stache{right:-6px;width:120px}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{min-height:auto;padding-block:36px 10px}
+}
+
+/* ───────── Scroll reveal ───────── */
+.js [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite: knír + maska pro papel picado -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="stache" viewBox="0 0 140 44">
+      <path fill="currentColor" d="M70 14C63 5 50 2 40 9 32 15 24 22 13 19 6 17 4 9 9 5 2 8 0 20 8 28c12 12 34 10 46 3 8-4 12-7 16-3 4-4 8-1 16 3 12 7 34 9 46-3 8-8 6-20-1-23 5 4 3 12-4 14-11 3-19-4-27-10C90 2 77 5 70 14Z"/>
+    </symbol>
+    <mask id="pp-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="60" height="72">
+      <path fill="#fff" d="M0 0H60V62L55 70 50 62 45 70 40 62 35 70 30 62 25 70 20 62 15 70 10 62 5 70 0 62Z"/>
+      <g fill="#000">
+        <circle cx="10" cy="9" r="2.3"/><circle cx="20" cy="9" r="2.3"/><circle cx="30" cy="9" r="2.3"/><circle cx="40" cy="9" r="2.3"/><circle cx="50" cy="9" r="2.3"/>
+        <g transform="translate(30 33)">
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7"/>
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7" transform="rotate(60)"/>
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7" transform="rotate(120)"/>
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7" transform="rotate(240)"/>
+          <ellipse cx="0" cy="-10" rx="3.6" ry="7" transform="rotate(300)"/>
+        </g>
+        <path d="M8 28l4 5-4 5-4-5zM52 28l4 5-4 5-4-5z"/>
+        <path d="M6 50h8l-4 6zM16 50h8l-4 6zM26 50h8l-4 6zM36 50h8l-4 6zM46 50h8l-4 6z"/>
+      </g>
+      <circle cx="30" cy="33" r="3.4" fill="#fff"/>
+    </mask>
+    <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V22h3.4Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4Z"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="picado" aria-hidden="true" data-flags="26"></div>
+  <nav class="topbar" aria-label="Hlavní navigace">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Taco Boss – úvod">
+        <img src="img/icon.png" alt="" width="46" height="46">
+        Taco Boss
+      </a>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#cantina">Cantina</a></li>
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#catering">Catering</a></li>
+        <li><a href="#kde">Kde jsme</a></li>
+        <li class="keep"><a class="pill" href="https://www.instagram.com/tacoboss/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@tacoboss</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ═════════ HERO ═════════ -->
+<section class="hero halftone">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Cantina mexicana · Hradec Králové</p>
+      <h1 class="wordmark" aria-label="Taco Boss">
+        <span class="w w1" data-split>Taco</span>
+        <svg class="sombrero" viewBox="0 0 120 52" aria-hidden="true">
+          <path fill="#1a1210" d="M38 34C38 10 48 3 60 3s22 7 22 31Z"/>
+          <rect x="38" y="25" width="44" height="6" fill="#d62b2b"/>
+          <path fill="#1a1210" d="M2 36Q60 24 118 36q-2 12-58 12T2 36Z"/>
+          <path fill="none" stroke="#178a4e" stroke-width="3" stroke-linejoin="round" d="M14 40l6-4 6 4 6-4 6 4 6-4 6 4 6-4 6 4 6-4 6 4 6-4 6 4 6-4 6 4 6-4"/>
+        </svg>
+        <span class="w w2" data-split>Boss</span>
+        <svg class="stache" viewBox="0 0 140 44" aria-hidden="true"><use href="#stache"/></svg>
+      </h1>
+      <p class="lead">Tacos, burrito, quesadilla a nachos s domácím pico de gallo a čerstvým guacamole. Kus mexické kultury přímo v Hradci Králové.</p>
+      <div class="cta-row">
+        <a class="btn btn-chili" href="#menu">Mrkni na menu</a>
+        <a class="btn" href="#kde"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kde nás najdeš</a>
+      </div>
+      <p class="status" data-status aria-live="polite"><span class="dot"></span><span class="txt">Otevírací doba níže</span></p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="sunburst"></div>
+      <p class="orale">¡Órale!
+        <svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 6c20 2 40 10 52 28M56 34l-2-12M56 34l-12-4"/></svg>
+      </p>
+      <div class="hero-card">
+        <div class="loteria">
+          <div class="face" style="--bg:var(--agave)">
+            <span class="num">0</span>
+            <div class="art"><img src="img/mascot.webp" alt="Maskot Taco Boss – taco s brýlemi a knírem" width="800" height="574"></div>
+            <span class="name">El Boss</span>
+          </div>
+        </div>
+      </div>
+      <div class="stamp">
+        <svg class="ring" viewBox="0 0 200 200">
+          <defs><path id="stamp-circle" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+          <circle cx="100" cy="100" r="97" fill="#d62b2b" stroke="#1a1210" stroke-width="4"/>
+          <circle cx="100" cy="100" r="56" fill="none" stroke="#f6ecd6" stroke-width="2" stroke-dasharray="4 5"/>
+          <text fill="#f6ecd6" font-family="Archivo, sans-serif" font-weight="800" font-size="17" letter-spacing="2">
+            <textPath href="#stamp-circle" textLength="462" lengthAdjust="spacing">HRADEC KRÁLOVÉ ✦ TACOS ✦ CANTINA ✦ FIESTA ✦</textPath>
+          </text>
+        </svg>
+        <div class="core"><svg viewBox="0 0 140 44"><use href="#stache"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tacos<i>✦</i>Burrito<i>✦</i>Quesadilla<i>✦</i>Nachos<i>✦</i>Guacamole<i>✦</i>Pico de gallo<i>✦</i>¡Órale!<i>✦</i>Jalapeños<i>✦</i></span>
+    <span>Tacos<i>✦</i>Burrito<i>✦</i>Quesadilla<i>✦</i>Nachos<i>✦</i>Guacamole<i>✦</i>Pico de gallo<i>✦</i>¡Órale!<i>✦</i>Jalapeños<i>✦</i></span>
+  </div>
+</div>
+
+<!-- ═════════ MENU ═════════ -->
+<!-- Menu podle nabídky na foodora.cz. TODO: ceny jsou z foodory (v provozovně jsou nižší) – doplnit skutečné -->
+<section class="section menu zig" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div data-reveal>
+        <p class="kicker">Menu</p>
+        <h2 class="h2">La Lotería</h2>
+        <p class="lead">V Mexiku se hraje lotería – bingo s obrázkovými kartami. U nás je každá karta jídlo: vyber si kartu, k tomu hovězí, kuřecí, nebo vege tofu fajitas. Vyhráváš vždycky.</p>
+      </div>
+      <div class="shuffle-box" data-reveal style="--d:2">
+        <button class="btn btn-corn" type="button" id="shuffle"><svg aria-hidden="true"><use href="#i-dice"/></svg>Nevíš co? Zamíchej karty</button>
+        <p class="shuffle-result" id="shuffle-result" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <ol class="dishes" id="dishes">
+      <!-- 1 -->
+      <li class="dish" data-reveal style="--d:0" data-card="Los Tacos" data-variants="hovězí|kuřecí|tofu fajitas">
+        <div class="loteria"><div class="face" style="--bg:#0fa3a3">
+          <span class="num">1</span>
+          <div class="art"><svg viewBox="0 0 120 120" role="img" aria-label="Taco s náplní">
+            <path fill="#178a4e" d="M14 72c2-14 12-22 22-20 4-9 15-11 22-5 7-7 19-6 24 1 10-5 22 0 22 12 6 2 9 8 8 12Z"/>
+            <path fill="#7a3b1d" class="thin" d="M30 68c2-6 8-7 11-4 3-5 10-4 11 0M64 66c2-5 8-6 11-2 4-4 10-2 11 2"/>
+            <circle cx="44" cy="56" r="6.5" fill="#d62b2b"/>
+            <circle cx="78" cy="54" r="6" fill="#d62b2b"/>
+            <path fill="#8cc63f" d="M56 50c4-6 12-4 12 2 0 5-8 7-12 4Z"/>
+            <ellipse class="fn" cx="62" cy="64" rx="6" ry="3" style="stroke:#e4007c;stroke-width:2.5"/>
+            <ellipse class="fn" cx="92" cy="64" rx="5" ry="2.6" style="stroke:#e4007c;stroke-width:2.5"/>
+            <path fill="#ffd23f" style="stroke-width:4" d="M10 74a50 50 0 0 0 100 0Z"/>
+            <path class="fn ns" d="M20 79a40 40 0 0 0 80 0" style="stroke:#e39a12;stroke-width:3"/>
+            <g fill="#e39a12"><circle class="ns" cx="32" cy="96" r="1.8"/><circle class="ns" cx="84" cy="100" r="1.8"/><circle class="ns" cx="60" cy="112" r="1.6"/><circle class="ns" cx="94" cy="86" r="1.5"/></g>
+          </svg></div>
+          <span class="name">Los Tacos</span>
+        </div></div>
+        <h3>Tacos <span class="price">250 Kč</span></h3>
+        <p>Kukuřičné tortilly, sýr, domácí pico de gallo, nakládaná červená cibule a čerstvé guacamole. Pálivá omáčka na přání.</p>
+        <ul class="variants"><li>Hovězí</li><li>Kuřecí</li><li>Tofu fajitas</li></ul>
+      </li>
+      <!-- 2 -->
+      <li class="dish" data-reveal style="--d:1" data-card="El Burrito" data-variants="hovězí|kuřecí|tofu fajitas">
+        <div class="loteria"><div class="face" style="--bg:#e4007c">
+          <span class="num">2</span>
+          <div class="art"><svg viewBox="0 0 120 120" role="img" aria-label="Burrito zabalené v alobalu">
+            <g transform="rotate(-28 60 62)">
+              <rect x="54" y="44" width="44" height="36" fill="#f2c46d"/>
+              <ellipse cx="98" cy="62" rx="10" ry="18" fill="#f2c46d"/>
+              <ellipse cx="98" cy="62" rx="6.5" ry="13" fill="#7a3b1d"/>
+              <circle class="ns" cx="97" cy="55" r="2.2" fill="#1f9d57"/><circle class="ns" cx="99" cy="64" r="2.2" fill="#d62b2b"/><circle class="ns" cx="96" cy="70" r="1.8" fill="#fff"/><circle class="ns" cx="100" cy="58" r="1.6" fill="#fff"/>
+              <path class="fn thin" d="M68 46c4 10 4 22 0 32M82 45c3 10 3 24 0 34" style="stroke:#c98b3c"/>
+              <path fill="#c9d1d6" d="M14 44h46v36H14a6 6 0 0 1-6-6V50a6 6 0 0 1 6-6Z"/>
+              <path class="fn thin" d="M18 52l6 4-4 6 6 4M30 49l-4 9 6 6-2 10M44 48l4 7-6 7 4 10" style="stroke:#8b979e"/>
+            </g>
+          </svg></div>
+          <span class="name">El Burrito</span>
+        </div></div>
+        <h3>Burrito <span class="price">250 Kč</span></h3>
+        <p>Pšeničná tortilla, sýr, fazolová pasta, domácí pico de gallo, nakládaná červená cibule a guacamole. Pálivá omáčka na přání.</p>
+        <ul class="variants"><li>Hovězí</li><li>Kuřecí</li><li>Tofu fajitas</li></ul>
+      </li>
+      <!-- 3 -->
+      <li class="dish" data-reveal style="--d:2" data-card="La Quesadilla" data-variants="hovězí|kuřecí|tofu fajitas">
+        <div class="loteria"><div class="face" style="--bg:#d62b2b">
+          <span class="num">3</span>
+          <div class="art"><svg viewBox="0 0 120 120" role="img" aria-label="Quesadilla na talíři">
+            <ellipse cx="60" cy="86" rx="50" ry="15" fill="#f6ecd6"/>
+            <ellipse class="fn thin" cx="60" cy="86" rx="40" ry="10" style="stroke-dasharray:5 5"/>
+            <path fill="#f2c46d" d="M16 80a44 44 0 0 1 88 0Z"/>
+            <path class="fn" d="M38 52l12 12M54 44l14 14M72 46l12 12" style="stroke:#a0591f;stroke-width:4"/>
+            <path fill="#ffd23f" d="M24 79H96c0 7-6 9-6 3-2 12-12 12-12 0-2 6-8 6-10 0-4 14-14 14-14 0-2 6-10 6-10 0-2 8-10 8-12-3Z"/>
+          </svg></div>
+          <span class="name">La Quesadilla</span>
+        </div></div>
+        <h3>Quesadilla <span class="price">260 Kč</span></h3>
+        <p>Grilovaná pšeničná tortilla s extra porcí sýra, fazolovou pastou, pico de gallo, nakládanou cibulí a guacamole.</p>
+        <ul class="variants"><li>Hovězí</li><li>Kuřecí</li><li>Tofu fajitas</li></ul>
+      </li>
+      <!-- 4 -->
+      <li class="dish" data-reveal style="--d:3" data-card="Los Nachos" data-variants="hovězí|kuřecí|tofu fajitas">
+        <div class="loteria"><div class="face" style="--bg:#178a4e">
+          <span class="num" style="color:#f6ecd6">4</span>
+          <div class="art"><svg viewBox="0 0 120 120" role="img" aria-label="Košík nachos se sýrovou omáčkou a jalapeños">
+            <path fill="#ffd23f" d="M18 72 34 34 52 72Z"/>
+            <path fill="#f7b32b" d="M68 72 88 36 104 72Z"/>
+            <path fill="#ffd23f" d="M42 72 62 24 80 72Z"/>
+            <path fill="#ffa400" d="M30 56c8-5 16-2 24-7 8 5 16 1 24 6 6-3 12-2 18 2v6c-2 7-6 7-7 1-2 9-9 9-9 1-2 5-7 5-8 0-3 8-10 8-10 0-3 5-8 5-9-1-2 6-8 6-9-2-4 4-10 2-11-6Z"/>
+            <circle cx="46" cy="44" r="5" fill="#1f9d57"/><circle class="ns" cx="46" cy="44" r="2.4" fill="#c9e07a"/>
+            <circle cx="74" cy="46" r="5" fill="#1f9d57"/><circle class="ns" cx="74" cy="46" r="2.4" fill="#c9e07a"/>
+            <circle cx="60" cy="36" r="4.5" fill="#1f9d57"/><circle class="ns" cx="60" cy="36" r="2.2" fill="#c9e07a"/>
+            <path fill="#d62b2b" d="M16 72H104L94 104H26Z"/>
+            <path class="fn" d="M24 88l7-5 7 5 7-5 7 5 7-5 7 5 7-5 7 5 7-5 7 5" style="stroke:#f6ecd6;stroke-width:3"/>
+            <rect x="12" y="68" width="96" height="9" rx="3" fill="#b01e1e"/>
+          </svg></div>
+          <span class="name">Los Nachos</span>
+        </div></div>
+        <h3>Nachos <span class="price">250 Kč</span></h3>
+        <p>Křupavé kukuřičné nachos, teplá sýrová omáčka, pico de gallo, nakládaná cibule, jalapeños a guacamole.</p>
+        <ul class="variants"><li>Hovězí</li><li>Kuřecí</li><li>Tofu fajitas</li></ul>
+      </li>
+    </ol>
+
+    <div class="menu-note"><p>Nabídka a ceny se mohou měnit. Denní speciality najdeš na <a href="https://www.instagram.com/tacoboss/" target="_blank" rel="noopener">Instagramu</a>.</p><a class="btn btn-corn" href="https://www.foodora.cz/restaurant/hx6p/taco-boss-hx6p" target="_blank" rel="noopener">Rozvoz přes foodora</a></div>
+  </div>
+</section>
+
+<!-- ═════════ CANTINA ═════════ -->
+<!-- TODO: nápoje a ceny jsou NÁVRH -->
+<section class="section cantina zig" id="cantina">
+  <div class="wrap">
+    <div class="cantina-head">
+      <div data-reveal>
+        <p class="kicker">Pití</p>
+        <h2 class="neon">La Cantina</h2>
+      </div>
+      <p data-reveal style="--d:1">Něco na zapití. A hlavně na zchlazení po pálivé omáčce.<span class="hand">¡Salud!</span></p>
+    </div>
+    <ul class="drinks">
+      <li class="drink"><span class="n">Michelada</span><span class="dots"></span><span class="p">89 Kč</span><span class="d">Pivo, limeta, chilli a sůl na okraji</span></li>
+      <li class="drink"><span class="n">Margarita</span><span class="dots"></span><span class="p">149 Kč</span><span class="d">Tequila, triple sec a čerstvá limeta</span></li>
+      <li class="drink"><span class="n">Mezcal</span><span class="dots"></span><span class="p">99 Kč</span><span class="d">Kouřový panák s pomerančem</span></li>
+      <li class="drink"><span class="n">Mexické pivo</span><span class="dots"></span><span class="p">79 Kč</span><span class="d">Lahvové, podává se s limetou</span></li>
+      <li class="drink"><span class="n">Točená 12°</span><span class="dots"></span><span class="p">55 Kč</span><span class="d">0,5 l – pořád jsme v Česku</span></li>
+      <li class="drink"><span class="n">Horchata</span><span class="dots"></span><span class="p">69 Kč</span><span class="d">Rýžový nápoj se skořicí, nealko</span></li>
+      <li class="drink"><span class="n">Agua de Jamaica</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Ledový ibiškový čaj</span></li>
+      <li class="drink"><span class="n">Jarritos</span><span class="dots"></span><span class="p">65 Kč</span><span class="d">Mexické limonády, různé příchutě</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═════════ O NÁS ═════════ -->
+<section class="section about halftone zig" id="o-nas">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <figure class="polaroid" data-reveal>
+        <img src="img/festival.webp" alt="Tým Taco Boss u festivalového stánku" width="711" height="717" loading="lazy">
+        <figcaption>Taco Boss na festivalu ✦</figcaption>
+      </figure>
+      <figure class="quote-card" data-reveal style="--d:1">
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>Chceme sdílet mexickou kulturu s&nbsp;lidmi v&nbsp;Česku.</blockquote>
+        <figcaption>— Taco Boss, Hradec Králové</figcaption>
+        <svg class="big-stache" viewBox="0 0 140 44" aria-hidden="true"><use href="#stache"/></svg>
+      </figure>
+    </div>
+    <div class="about-copy">
+      <p class="kicker" data-reveal>O nás</p>
+      <h2 class="h2" data-reveal>Kdo je El&nbsp;Boss?</h2>
+      <p class="lead" data-reveal style="--d:1">Taco Boss vznikl s jednoduchým cílem: ukázat Čechům, jak chutná Mexiko. Tortilly, salsy a marinády podle mexických receptů, k tomu muzika a pořádná fiesta. Potkat nás můžeš v naší cantině v Hradci, na festivalech po celé republice – a když nám napíšeš, klidně i na tvé akci.</p>
+      <ul class="pillars">
+        <li class="pillar" data-reveal style="--d:1"><span class="no">01</span><div><h3>Recepty z Mexika</h3><p>Vaříme tak, jak se to dělá doma v Mexiku. Poctivě, pomalu a s láskou.</p></div></li>
+        <li class="pillar" data-reveal style="--d:2"><span class="no">02</span><div><h3>Salsy od mírné po pekelnou</h3><p>Každý si najde tu svoji. Odvážní si řeknou o tu nejpálivější.</p></div></li>
+        <li class="pillar" data-reveal style="--d:3"><span class="no">03</span><div><h3>Muzika a fiesta</h3><p>Koncerty, DJs a tematické večery. Co se chystá, najdeš na Instagramu.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ CATERING ═════════ -->
+<section class="section fiesta zig" id="catering">
+  <div class="wrap fiesta-grid">
+    <div>
+      <p class="kicker" data-reveal>Catering &amp; akce</p>
+      <h2 class="h2" data-reveal>¿Fiesta? Přivezeme tacos.</h2>
+      <p class="lead" data-reveal style="--d:1">Svatba, firemní večírek, festival nebo narozeniny. Postavíme taco bar a o tvoje hosty se postaráme. Jezdíme po celém Česku i po Evropě.</p>
+      <ul class="tags" data-reveal style="--d:2">
+        <li>Svatby</li><li>Firemní akce</li><li>Festivaly</li><li>Narozeniny</li><li>Soukromé večírky</li>
+      </ul>
+      <div data-reveal style="--d:3">
+        <a class="btn btn-ink" href="https://ig.me/m/tacoboss" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Napiš nám</a>
+        <p class="write-us">Europe? Do you want tacos? Write us!</p>
+      </div>
+    </div>
+    <!-- TODO: ověřit seznam festivalů (odvozeno z highlightů na IG: RFP25, Colours24) -->
+    <div class="tickets" data-reveal style="--d:2">
+      <p class="tickets-label">Už nás znáš z</p>
+      <div class="ticket-stack">
+      <div class="ticket"><div class="main"><small>Festival · 2025</small><strong>Rock for People</strong></div><div class="stub"><span>Vstupenka</span></div></div>
+      <div class="ticket"><div class="main"><small>Festival · 2024</small><strong>Colours of Ostrava</strong></div><div class="stub"><span>Vstupenka</span></div></div>
+      <div class="ticket"><div class="main"><small>Příště</small><strong>Tvoje akce?</strong></div><div class="stub"><span>¡Vamos!</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ INSTAGRAM ═════════ -->
+<section class="ig" aria-label="Instagram">
+  <div class="wrap">
+    <div>
+      <p class="kicker" style="color:var(--ink)">Sleduj nás</p>
+      <a class="ig-handle" href="https://www.instagram.com/tacoboss/" target="_blank" rel="noopener">@tacoboss</a>
+    </div>
+    <div>
+      <p>Denní speciality, akce, koncerty a fotky, ze kterých dostaneš hlad.</p>
+      <a class="btn btn-ink" href="https://www.instagram.com/tacoboss/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Otevřít Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ KDE JSME ═════════ -->
+<section class="section visit" id="kde">
+  <div class="wrap">
+    <p class="kicker" data-reveal>Kde nás najdeš</p>
+    <h2 class="h2" data-reveal>Přijď na tacos</h2>
+    <div class="visit-grid">
+      <div class="info" data-reveal>
+        <address><strong>Taco Boss</strong>Pražská tř. 628/51<br>500 04 Hradec Králové – Kukleny</address>
+        <p class="status" data-status><span class="dot"></span><span class="txt">Otevírací doba</span></p>
+        <table class="hours" id="hours" aria-label="Otevírací doba"></table>
+        <div class="btns">
+          <a class="btn btn-chili" id="nav-link" href="https://www.google.com/maps/search/?api=1&query=Pra%C5%BEsk%C3%A1+t%C5%99.+628%2F51%2C+500+04+Hradec+Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Navigovat</a>
+          <a class="btn" href="https://ig.me/m/tacoboss" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Napsat zprávu</a>
+        </div>
+      </div>
+      <div class="map" data-reveal style="--d:1">
+        <span class="pin-label">📍 Pražská tř. 628/51, Kukleny</span>
+        <iframe title="Mapa – Taco Boss, Hradec Králové" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Pra%C5%BEsk%C3%A1%20t%C5%99.%20628%2F51%2C%20500%2004%20Hradec%20Kr%C3%A1lov%C3%A9&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="picado" aria-hidden="true" data-flags="26"></div>
+  <div class="wrap">
+    <p class="giant" aria-hidden="true">Taco Boss</p>
+    <div class="foot-row">
+      <span class="made">Hecho con amor en Hradec Králové ♥</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/tacoboss/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+        <a href="https://www.facebook.com/tacobosscz/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+      </div>
+      <small>© <span id="year">2026</span> Taco Boss</small>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Rychlé odkazy">
+  <a href="#menu">Menu</a>
+  <a href="#kde">Kde jsme</a>
+  <a class="hot" href="https://ig.me/m/tacoboss" target="_blank" rel="noopener">Napsat</a>
+</nav>
+
+<script>
+/* ── Otevírací doba – ZATÍM VYMYŠLENÁ (TODO: upravit podle skutečnosti; null = zavřeno) ── */
+const HOURS = {
+  1: ["11:00", "22:00"], // pondělí
+  2: ["11:00", "22:00"], // úterý
+  3: ["11:00", "22:00"], // středa
+  4: ["11:00", "23:00"], // čtvrtek
+  5: ["11:00", "24:00"], // pátek
+  6: ["12:00", "24:00"], // sobota
+  0: ["12:00", "20:00"], // neděle
+};
+const DAY_NAMES = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
+const DAY_IN = ["v neděli", "v pondělí", "v úterý", "ve středu", "ve čtvrtek", "v pátek", "v sobotu"];
+
+const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+
+function pragueNow() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Prague", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(new Date());
+  const get = type => parts.find(p => p.type === type).value;
+  const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+  return { day, min: Number(get("hour")) * 60 + Number(get("minute")) };
+}
+
+function status() {
+  const { day, min } = pragueNow();
+  const today = HOURS[day];
+  if (today) {
+    const open = toMin(today[0]);
+    const close = toMin(today[1]) <= open ? toMin(today[1]) + 1440 : toMin(today[1]);
+    if (min >= open && min < close) return { open: true, text: `Právě máme otevřeno · do ${today[1]}` };
+    if (min < open) return { open: false, text: `Teď zavřeno · otevíráme dnes v ${today[0]}` };
+  }
+  for (let i = 1; i <= 7; i++) {
+    const d = (day + i) % 7;
+    if (HOURS[d]) return { open: false, text: `Teď zavřeno · otevíráme ${i === 1 ? "zítra" : DAY_IN[d]} v ${HOURS[d][0]}` };
+  }
+  return { open: false, text: "Momentálně zavřeno" };
+}
+
+function renderHours() {
+  const { day } = pragueNow();
+  const table = document.getElementById("hours");
+  table.innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => {
+    const h = HOURS[d];
+    const val = h ? `${h[0]} – ${h[1]}` : '<span class="closed">zavřeno</span>';
+    return `<tr${d === day ? ' class="today"' : ""}><th scope="row">${DAY_NAMES[d]}</th><td>${val}</td></tr>`;
+  }).join("");
+  const s = status();
+  document.querySelectorAll("[data-status]").forEach(el => {
+    el.classList.toggle("open", s.open);
+    el.querySelector(".txt").textContent = s.text;
+  });
+}
+renderHours();
+setInterval(renderHours, 60_000);
+
+/* ── Papel picado ── */
+document.querySelectorAll(".picado").forEach(row => {
+  const n = Number(row.dataset.flags) || 24;
+  row.innerHTML = Array.from({ length: n }, (_, i) =>
+    `<span class="flag" style="--i:${i}"><svg viewBox="0 0 60 72"><rect width="60" height="72" fill="currentColor" mask="url(#pp-cut)"/></svg></span>`
+  ).join("");
+});
+
+/* ── Rozpadnutí nápisu na písmena ── */
+let li = 0;
+document.querySelectorAll("[data-split]").forEach(el => {
+  el.setAttribute("aria-hidden", "true");
+  el.innerHTML = [...el.textContent].map(ch => `<span class="ltr" style="--i:${li++}">${ch}</span>`).join("");
+});
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll("[data-reveal]").forEach(el => io.observe(el));
+
+/* ── Lotería: zamíchej karty ── */
+const shuffleBtn = document.getElementById("shuffle");
+const result = document.getElementById("shuffle-result");
+const dishes = [...document.querySelectorAll(".dish")];
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let running = false;
+
+shuffleBtn.addEventListener("click", () => {
+  if (running) return;
+  running = true;
+  dishes.forEach(d => d.classList.remove("winner", "flash"));
+  result.textContent = "Míchám…";
+  const pick = Math.floor(Math.random() * dishes.length);
+  const steps = reduceMotion ? 0 : 18 + ((pick - 18 % dishes.length + dishes.length) % dishes.length);
+  let i = 0;
+  let current = -1;
+  const tick = () => {
+    if (current >= 0) dishes[current].classList.remove("flash");
+    if (i >= steps) {
+      const win = dishes[pick];
+      win.classList.add("winner");
+      const variants = win.dataset.variants.split("|");
+      result.textContent = `¡Lotería! Dnes ti padlo: ${win.dataset.card}, ${variants[Math.floor(Math.random() * variants.length)]}.`;
+      const r = win.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight) win.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      running = false;
+      return;
+    }
+    current = i % dishes.length;
+    dishes[current].classList.add("flash");
+    i++;
+    setTimeout(tick, 55 + i * i * 0.9);
+  };
+  tick();
+});
+</script>
+</body>
+</html>
