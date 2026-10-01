@@ -380,6 +380,8 @@ main{overflow-x:clip}
 .drink .n{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.3rem)}
 .drink .dots{border-bottom:3px dotted rgba(246,236,214,.3);translate:0 -6px}
 .drink .p{font-family:var(--display);color:var(--corn);white-space:nowrap}
+.drink.noimg{grid-template-columns:auto 1fr auto}
+.drink-group{break-after:avoid;font-family:var(--display);color:var(--corn);text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;margin:18px 0 6px}
 .drink .d{grid-column:2/-1;font-size:.9rem;color:rgba(246,236,214,.66)}
 
 /* ───────── About ───────── */
@@ -794,7 +796,7 @@ main{overflow-x:clip}
 </section>
 
 <!-- ═════════ CANTINA ═════════ -->
-<!-- Nápoje podle fotek od Alejandra. TODO: ceny jsou NÁVRH -->
+<!-- Nápoje a ceny dle zadání -->
 <section class="section cantina zig" id="cantina">
   <div class="wrap">
     <div class="cantina-head">
@@ -805,10 +807,18 @@ main{overflow-x:clip}
       <p data-reveal style="--d:1">Něco na zapití. A hlavně na zchlazení po pálivé omáčce.<span class="hand">¡Salud!</span></p>
     </div>
     <ul class="drinks">
-      <li class="drink"><img src="img/food/corona.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Corona</span><span class="dots"></span><span class="p">79 Kč</span><span class="d">Mexické pivo, podává se s limetou</span></li>
-      <li class="drink"><img src="img/food/jamaica.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Agua de Jamaica</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Ledový ibiškový nápoj, osvěžující a lehce kyselý</span></li>
+      <li class="drink-group">Aguas frescas</li>
       <li class="drink"><img src="img/food/horchata.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Horchata</span><span class="dots"></span><span class="p">69 Kč</span><span class="d">Rýžový nápoj se skořicí, nealko</span></li>
-      <li class="drink"><img src="img/food/chips.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Chipsy Habanero Piña</span><span class="dots"></span><span class="p">59 Kč</span><span class="d">Tortilla chipsy s habanerem a ananasem, na zakousnutí</span></li>
+      <li class="drink"><img src="img/food/jamaica.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Jamaica</span><span class="dots"></span><span class="p">69 Kč</span><span class="d">Ledový ibiškový nápoj, osvěžující a lehce kyselý</span></li>
+      <li class="drink-group">Cerveza</li>
+      <li class="drink"><img src="img/food/corona.webp" alt="" width="240" height="240" loading="lazy"><span class="n">Corona</span><span class="dots"></span><span class="p">60 Kč</span></li>
+      <li class="drink noimg"><span class="n">Kocour</span><span class="dots"></span><span class="p">60 Kč</span></li>
+      <li class="drink noimg"><span class="n">Krakonoš</span><span class="dots"></span><span class="p">45 Kč</span></li>
+      <li class="drink-group">Cocktails Mexicanos</li>
+      <li class="drink noimg"><span class="n">Margarita</span><span class="dots"></span><span class="p">150 Kč</span></li>
+      <li class="drink noimg"><span class="n">Mezcalita</span><span class="dots"></span><span class="p">160 Kč</span></li>
+      <li class="drink noimg"><span class="n">Charro negro</span><span class="dots"></span><span class="p">140 Kč</span></li>
+      <li class="drink noimg"><span class="n">Carajillo</span><span class="dots"></span><span class="p">140 Kč</span></li>
     </ul>
   </div>
 </section>
@@ -930,15 +940,15 @@ main{overflow-x:clip}
 </nav>
 
 <script>
-/* ── Otevírací doba – ZATÍM VYMYŠLENÁ (TODO: upravit podle skutečnosti; null = zavřeno) ── */
+/* ── Otevírací doba (null = zavřeno) ── */
 const HOURS = {
-  1: ["11:00", "22:00"], // pondělí
-  2: ["11:00", "22:00"], // úterý
-  3: ["11:00", "22:00"], // středa
-  4: ["11:00", "23:00"], // čtvrtek
-  5: ["11:00", "24:00"], // pátek
-  6: ["12:00", "24:00"], // sobota
-  0: ["12:00", "20:00"], // neděle
+  1: null,               // pondělí – zavřeno
+  2: ["12:00", "20:00"], // úterý
+  3: ["12:00", "20:00"], // středa
+  4: ["12:00", "20:00"], // čtvrtek
+  5: ["12:00", "22:00"], // pátek
+  6: ["12:00", "22:00"], // sobota
+  0: null,               // neděle – zavřeno
 };
 const DAY_NAMES = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"];
 const DAY_IN = ["v neděli", "v pondělí", "v úterý", "ve středu", "ve čtvrtek", "v pátek", "v sobotu"];
