@@ -3,19 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Taco Boss · Mexická cantina v Hradci Králové</title>
-<meta name="description" content="Taco Boss – tacos, burrito, quesadilla a nachos v Hradci Králové (Kukleny, Pražská tř.). Catering a taco bar na svatby, firemní akce i festivaly.">
+<title>Taco Boss – mexické tacos a burrito | Hradec Králové</title>
+<meta name="description" content="Mexická restaurace Taco Boss v Hradci Králové – Kuklenech. Tacos, burrito, quesadilla a nachos s hovězím, kuřecím i tofu, margarity, rozvoz a catering.">
+<link rel="canonical" href="https://www.tacoboss.cz/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="geo.region" content="CZ-52">
+<meta name="geo.placename" content="Hradec Králové">
+<meta name="geo.position" content="50.206229;15.7971476">
+<meta name="ICBM" content="50.206229, 15.7971476">
 <meta name="theme-color" content="#e4007c">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Taco Boss · Mexická cantina v Hradci Králové">
-<meta property="og:description" content="Tacos jako z Mexika, salsy od mírné po pekelnou a vychlazená michelada. ¡Órale!">
+<meta property="og:site_name" content="Taco Boss">
+<meta property="og:title" content="Taco Boss – mexické tacos a burrito v Hradci Králové">
+<meta property="og:description" content="Tacos, burrito, quesadilla a nachos v Kuklenech. Margarity, horchata, rozvoz přes Wolt, foodora a Bolt. ¡Órale!">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:image" content="https://tacoboss-pearl.vercel.app/img/og.jpg">
-<meta property="og:url" content="https://tacoboss-pearl.vercel.app/">
+<meta property="og:image" content="https://www.tacoboss.cz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="Tacos, burrito a quesadilla od Taco Boss">
+<meta property="og:url" content="https://www.tacoboss.cz/">
 <meta name="twitter:card" content="summary_large_image">
-<!-- TODO: po přechodu na vlastní doménu změnit og:url a og:image -->
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
+<link rel="preload" as="image" href="img/mascot.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat+Brush&family=Chango&family=Rye&display=swap" rel="stylesheet">
@@ -23,22 +33,340 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "Taco Boss",
-  "servesCuisine": "Mexican",
-  "description": "Mexická cantina a taco catering v Hradci Králové.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Pražská tř. 628/51",
-    "addressLocality": "Hradec Králové",
-    "postalCode": "500 04",
-    "addressCountry": "CZ"
-  },
-  "sameAs": [
-    "https://www.instagram.com/tacoboss/",
-    "https://www.facebook.com/tacobosscz/"
-  ],
-  "image": "img/og.jpg"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tacoboss.cz/#website",
+      "url": "https://www.tacoboss.cz/",
+      "name": "Taco Boss",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "https://www.tacoboss.cz/#restaurant"
+      }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://www.tacoboss.cz/#restaurant",
+      "name": "Taco Boss",
+      "alternateName": [
+        "TacoBoss",
+        "Taco Boss Hradec Králové"
+      ],
+      "description": "Mexická restaurace a cantina v Hradci Králové – Kuklenech. Tacos, burrito, quesadilla a nachos s hovězím, kuřecím nebo tofu, mexické koktejly, rozvoz a catering.",
+      "url": "https://www.tacoboss.cz/",
+      "telephone": "+420722555403",
+      "image": [
+        "https://www.tacoboss.cz/img/og.jpg",
+        "https://www.tacoboss.cz/img/food/cover.webp",
+        "https://www.tacoboss.cz/img/food/beef-tacos.webp"
+      ],
+      "logo": "https://www.tacoboss.cz/img/logo.png",
+      "servesCuisine": [
+        "Mexická kuchyně",
+        "Mexican"
+      ],
+      "priceRange": "45–260 Kč",
+      "currenciesAccepted": "CZK",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pražská tř. 628/51",
+        "addressLocality": "Hradec Králové",
+        "addressRegion": "Královéhradecký kraj",
+        "postalCode": "500 04",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.206229,
+        "longitude": 15.7971476
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Pra%C5%BEsk%C3%A1+t%C5%99.+628%2F51%2C+500+04+Hradec+Kr%C3%A1lov%C3%A9",
+      "areaServed": {
+        "@type": "City",
+        "name": "Hradec Králové"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "12:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "12:00",
+          "closes": "22:00"
+        }
+      ],
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "Menu Taco Boss",
+        "url": "https://www.tacoboss.cz/#menu",
+        "inLanguage": "cs",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "Jídla",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Tacos",
+                "description": "Kukuřičné tortilly, sýr, domácí pico de gallo, nakládaná červená cibule a guacamole. Hovězí, kuřecí nebo tofu fajitas.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "250",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Burrito",
+                "description": "Pšeničná tortilla, sýr, fazolová pasta, pico de gallo, nakládaná červená cibule a guacamole. Hovězí, kuřecí nebo tofu fajitas.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "250",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Quesadilla",
+                "description": "Grilovaná pšeničná tortilla s extra porcí sýra, fazolovou pastou, pico de gallo a guacamole. Hovězí, kuřecí nebo tofu fajitas.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "260",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Nachos",
+                "description": "Kukuřičné nachos, teplá sýrová omáčka, pico de gallo, nakládaná cibule, jalapeños a guacamole. Hovězí, kuřecí nebo tofu fajitas.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "250",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Aguas frescas",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Horchata",
+                "description": "Rýžový nápoj se skořicí, nealko",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "69",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Jamaica",
+                "description": "Ledový ibiškový nápoj",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "69",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Pivo",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Corona",
+                "description": "Mexické pivo",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "60",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Kocour",
+                "description": "Pivo z pivovaru Kocour",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "60",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Krakonoš",
+                "description": "Pivo Krakonoš",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "45",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Mexické koktejly",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Margarita",
+                "description": "Mexický koktejl s tequilou",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "150",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Mezcalita",
+                "description": "Margarita s mezcalem",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "160",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Charro negro",
+                "description": "Mexický long drink s tequilou a colou",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "140",
+                  "priceCurrency": "CZK"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Carajillo",
+                "description": "Espresso s likérem",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "140",
+                  "priceCurrency": "CZK"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "OrderAction",
+        "target": [
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://wolt.com/cs/cze/hradec-kralove/restaurant/taco-boss-1",
+            "name": "Wolt"
+          },
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.foodora.cz/restaurant/hx6p/taco-boss-hx6p",
+            "name": "foodora"
+          },
+          {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://food.bolt.eu/cs-cz/430-hradec%20kralove/p/4792543-taco-boss/",
+            "name": "Bolt Food"
+          }
+        ]
+      },
+      "makesOffer": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Catering a taco bar na akce",
+          "description": "Mexický taco bar na svatby, firemní akce, festivaly a narozeniny po celém Česku."
+        }
+      },
+      "sameAs": [
+        "https://www.instagram.com/tacoboss/",
+        "https://www.facebook.com/tacobosscz/",
+        "https://wolt.com/cs/cze/hradec-kralove/restaurant/taco-boss-1",
+        "https://www.foodora.cz/restaurant/hx6p/taco-boss-hx6p",
+        "https://food.bolt.eu/cs-cz/430-hradec%20kralove/p/4792543-taco-boss/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tacoboss.cz/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kde v Hradci Králové najdu Taco Boss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Taco Boss najdeš na adrese Pražská tř. 628/51, 500 04 Hradec Králové – Kukleny. Navigace v Google Maps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kdy má Taco Boss otevřeno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Úterý až čtvrtek 12:00–20:00, pátek a sobota 12:00–22:00. V neděli a v pondělí máme zavřeno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co Taco Boss vaří?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mexické tacos, burrito, quesadillu a nachos. Každé jídlo si vybereš s hovězím, kuřecím, nebo vegetariánsky s tofu fajitas. Ke všemu domácí pico de gallo, nakládaná červená cibule a čerstvé guacamole. Hlavní jídla stojí 250–260 Kč."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Máte vegetariánská jídla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Tacos, burrito, quesadillu i nachos připravíme s tofu fajitas – grilovaným tofu s restovanou paprikou a cibulí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké mexické nápoje a drinky máte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aguas frescas horchata a jamaica, pivo Corona, Kocour a Krakonoš a mexické koktejly: margarita, mezcalita, charro negro a carajillo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Rozvážíte jídlo domů?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano, objednat můžeš přes Wolt, foodora nebo Bolt Food, případně napiš na WhatsApp 722 555 403."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Děláte catering a taco bar na akce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Na svatby, firemní akce, festivaly i narozeniny postavíme taco bar a o hosty se postaráme. Jezdíme po celém Česku. Ozvi se na WhatsApp nebo telefon 722 555 403."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -483,6 +811,26 @@ main{overflow-x:clip}
 .order-wa p{margin:0;font-weight:700}
 .btn-wa{background:#25d366;color:var(--ink)}
 
+/* ───────── FAQ ───────── */
+.faq{--zig:var(--paper-2);background:var(--paper-2)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+.faq-head{position:sticky;top:96px}
+@media (max-width:900px){.faq-head{position:static}}
+.faq-head a{font-weight:700}
+.faq-list{display:grid;gap:14px}
+.qa{background:var(--paper);border:3px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);transition:box-shadow .2s}
+.qa[open]{box-shadow:6px 6px 0 var(--rosa)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary h3{margin:0;font-weight:800;font-stretch:88%;font-size:clamp(1.02rem,1.4vw,1.2rem);line-height:1.25}
+.qa summary::after{content:"+";flex:none;font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--rosa);transition:rotate .25s}
+.qa[open] summary::after{rotate:45deg}
+.qa .a{padding:0 22px 20px;color:var(--ink-soft)}
+.qa .a a{font-weight:700;color:var(--ink)}
+.info address a{font-weight:700;text-decoration:none}
+.foot-row small a{color:inherit}
+
 /* ───────── Instagram strip ───────── */
 .ig{background:var(--corn);border-block:3px solid var(--ink);padding-block:clamp(40px,6vw,72px);overflow:hidden}
 .ig .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 40px}
@@ -643,8 +991,8 @@ main{overflow-x:clip}
 <section class="hero halftone">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Cantina mexicana · Hradec Králové</p>
-      <h1 class="wordmark" aria-label="Taco Boss">
+      <p class="eyebrow">Cantina mexicana · Hradec Králové – Kukleny</p>
+      <h1 class="wordmark"><span class="sr-only">Taco Boss – mexická restaurace a tacos v Hradci Králové</span>
         <span class="w w1" data-split>Taco</span>
         <svg class="sombrero" viewBox="0 0 120 52" aria-hidden="true">
           <path fill="#1a1210" d="M38 34C38 10 48 3 60 3s22 7 22 31Z"/>
@@ -672,7 +1020,7 @@ main{overflow-x:clip}
         <div class="loteria">
           <div class="face" style="--bg:var(--agave)">
             <span class="num">0</span>
-            <div class="art"><img src="img/mascot.webp" alt="Maskot Taco Boss – taco s brýlemi a knírem" width="800" height="574"></div>
+            <div class="art"><img src="img/mascot.webp" alt="Maskot Taco Boss – taco s brýlemi a knírem" width="800" height="574" fetchpriority="high"></div>
             <span class="name">El Boss</span>
           </div>
         </div>
@@ -705,7 +1053,7 @@ main{overflow-x:clip}
   <div class="wrap">
     <div class="menu-head">
       <div data-reveal>
-        <p class="kicker">Menu</p>
+        <p class="kicker">Menu · mexická kuchyně</p>
         <h2 class="h2">La Lotería</h2>
         <p class="lead">V Mexiku se hraje lotería – bingo s obrázkovými kartami. U nás je každá karta jídlo: vyber si kartu, k tomu hovězí, kuřecí, nebo vege tofu fajitas. Vyhráváš vždycky.</p>
       </div>
@@ -948,6 +1296,26 @@ main{overflow-x:clip}
   </div>
 </section>
 
+<!-- ═════════ FAQ ═════════ -->
+<section class="section faq zig" id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-head" data-reveal>
+      <p class="kicker">¿Preguntas?</p>
+      <h2 class="h2">Časté dotazy</h2>
+      <p class="lead">Všechno důležité o Taco Boss na jednom místě. Něco chybí? Napiš nám na <a href="https://wa.me/420722555403" target="_blank" rel="noopener">WhatsApp</a>.</p>
+    </div>
+    <div class="faq-list">
+        <details class="qa" data-reveal style="--d:0" open><summary><h3>Kde v Hradci Králové najdu Taco Boss?</h3></summary><div class="a"><p>Taco Boss najdeš na adrese <strong>Pražská tř. 628/51, 500 04 Hradec Králové – Kukleny</strong>. <a href="https://www.google.com/maps/search/?api=1&amp;query=Pra%C5%BEsk%C3%A1+t%C5%99.+628%2F51%2C+500+04+Hradec+Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener">Navigace v Google Maps</a>.</p></div></details>
+        <details class="qa" data-reveal style="--d:1"><summary><h3>Kdy má Taco Boss otevřeno?</h3></summary><div class="a"><p>Úterý až čtvrtek 12:00–20:00, pátek a sobota 12:00–22:00. V neděli a v pondělí máme zavřeno.</p></div></details>
+        <details class="qa" data-reveal style="--d:2"><summary><h3>Co Taco Boss vaří?</h3></summary><div class="a"><p>Mexické tacos, burrito, quesadillu a nachos. Každé jídlo si vybereš s hovězím, kuřecím, nebo vegetariánsky s tofu fajitas. Ke všemu domácí pico de gallo, nakládaná červená cibule a čerstvé guacamole. Hlavní jídla stojí 250–260 Kč.</p></div></details>
+        <details class="qa" data-reveal style="--d:0"><summary><h3>Máte vegetariánská jídla?</h3></summary><div class="a"><p>Ano. Tacos, burrito, quesadillu i nachos připravíme s tofu fajitas – grilovaným tofu s restovanou paprikou a cibulí.</p></div></details>
+        <details class="qa" data-reveal style="--d:1"><summary><h3>Jaké mexické nápoje a drinky máte?</h3></summary><div class="a"><p>Aguas frescas horchata a jamaica, pivo Corona, Kocour a Krakonoš a mexické koktejly: margarita, mezcalita, charro negro a carajillo.</p></div></details>
+        <details class="qa" data-reveal style="--d:2"><summary><h3>Rozvážíte jídlo domů?</h3></summary><div class="a"><p>Ano, objednat můžeš přes <a href="#objednat">Wolt, foodora nebo Bolt Food</a>, případně napiš na <a href="https://wa.me/420722555403" target="_blank" rel="noopener">WhatsApp 722 555 403</a>.</p></div></details>
+        <details class="qa" data-reveal style="--d:0"><summary><h3>Děláte catering a taco bar na akce?</h3></summary><div class="a"><p>Ano. Na svatby, firemní akce, festivaly i narozeniny postavíme taco bar a o hosty se postaráme. Jezdíme po celém Česku. Ozvi se na WhatsApp nebo telefon <a href="tel:+420722555403">722 555 403</a>.</p></div></details>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════ KDE JSME ═════════ -->
 <section class="section visit" id="kde">
   <div class="wrap">
@@ -955,9 +1323,9 @@ main{overflow-x:clip}
     <h2 class="h2" data-reveal>Přijď na tacos</h2>
     <div class="visit-grid">
       <div class="info" data-reveal>
-        <address><strong>Taco Boss</strong>Pražská tř. 628/51<br>500 04 Hradec Králové – Kukleny</address>
+        <address><strong>Taco Boss</strong>Pražská tř. 628/51<br>500 04 Hradec Králové – Kukleny<br><a href="tel:+420722555403">+420 722 555 403</a></address>
         <p class="status" data-status><span class="dot"></span><span class="txt">Otevírací doba</span></p>
-        <table class="hours" id="hours" aria-label="Otevírací doba"></table>
+        <table class="hours" id="hours" aria-label="Otevírací doba"><tr><th scope="row">Pondělí</th><td><span class="closed">zavřeno</span></td></tr><tr><th scope="row">Úterý</th><td>12:00 – 20:00</td></tr><tr><th scope="row">Středa</th><td>12:00 – 20:00</td></tr><tr><th scope="row">Čtvrtek</th><td>12:00 – 20:00</td></tr><tr><th scope="row">Pátek</th><td>12:00 – 22:00</td></tr><tr><th scope="row">Sobota</th><td>12:00 – 22:00</td></tr><tr><th scope="row">Neděle</th><td><span class="closed">zavřeno</span></td></tr></table>
         <div class="btns">
           <a class="btn btn-chili" id="nav-link" href="https://www.google.com/maps/search/?api=1&query=Pra%C5%BEsk%C3%A1+t%C5%99.+628%2F51%2C+500+04+Hradec+Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Navigovat</a>
           <a class="btn btn-wa" href="https://wa.me/420722555403" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
@@ -987,7 +1355,7 @@ main{overflow-x:clip}
         <a href="https://www.facebook.com/tacobosscz/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
         <a href="https://wa.me/420722555403" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
       </div>
-      <small>© <span id="year">2026</span> Taco Boss</small>
+      <small>© <span id="year">2026</span> Taco Boss · Pražská tř. 628/51, 500 04 Hradec Králové · <a href="tel:+420722555403">+420 722 555 403</a></small>
     </div>
   </div>
 </footer>
