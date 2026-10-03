@@ -472,6 +472,7 @@ main{overflow-x:clip}
 .nav-links .pill:hover{background:var(--rosa);transform:rotate(-3deg)}
 .nav-links .pill svg{width:16px;height:16px}
 @media (max-width:860px){.nav-links li:not(.keep){display:none}}
+@media (max-width:380px){.nav-links .pill{font-size:0;gap:0;padding:.65em}.nav-links .pill svg{width:18px;height:18px}}
 
 /* ───────── Buttons ───────── */
 .btn{
@@ -786,6 +787,145 @@ main{overflow-x:clip}
 }
 .ticket .stub span{writing-mode:vertical-rl;rotate:180deg;letter-spacing:.12em;font-size:.95rem}
 
+/* ───────── La Rockola (jukebox) ───────── */
+@property --neon{syntax:"<angle>";inherits:false;initial-value:0deg}
+.rockola{
+  --zig:var(--agave);background-color:var(--agave);
+  background-image:radial-gradient(rgba(26,18,16,.16) 1px,transparent 1.7px);background-size:11px 11px;
+}
+.rockola .kicker{color:var(--ink)}
+.rockola .h2{color:var(--paper);text-shadow:.05em .05em 0 var(--ink)}
+.rockola-grid{
+  display:grid;grid-template-columns:1fr minmax(300px,430px);grid-template-areas:"head jb" "extra jb";
+  gap:clamp(24px,4vw,48px) clamp(32px,6vw,88px);align-items:start;
+}
+.rockola-head{grid-area:head;align-self:end}
+.jukebox{grid-area:jb}
+.rockola-extra{grid-area:extra}
+@media (max-width:900px){
+  .rockola-grid{grid-template-columns:1fr;grid-template-areas:"head" "jb" "extra"}
+}
+.jukebox{
+  position:relative;width:min(430px,100%);justify-self:center;
+  background:linear-gradient(#4a2418,#1a1210 70%);border:3px solid var(--ink);
+  border-radius:215px 215px 30px 30px;padding:22px 18px 20px;box-shadow:12px 12px 0 var(--ink);
+}
+.jukebox::before{
+  content:"";position:absolute;inset:7px;border-radius:208px 208px 24px 24px;pointer-events:none;
+  border:7px solid transparent;
+  background:conic-gradient(from var(--neon),var(--rosa),var(--marigold),var(--corn),var(--cilantro),var(--agave),var(--rosa)) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+          mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude;
+  filter:drop-shadow(0 0 6px rgba(228,0,124,.6));opacity:.75;transition:opacity .4s,filter .4s;
+}
+.jukebox.playing::before{opacity:1;filter:drop-shadow(0 0 10px rgba(228,0,124,.9)) drop-shadow(0 0 22px rgba(255,164,0,.5));animation:neon 4s linear infinite}
+@keyframes neon{to{--neon:360deg}}
+.jb-badge{
+  position:absolute;left:50%;top:-18px;translate:-50% 0;z-index:2;white-space:nowrap;
+  font-family:var(--serif);font-size:1rem;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--corn);border:3px solid var(--ink);border-radius:999px;padding:.25em 1em;box-shadow:3px 3px 0 var(--ink);
+}
+.jb-window{
+  position:relative;z-index:1;margin:8px 8px 0;aspect-ratio:1.2;overflow:hidden;
+  border:3px solid var(--ink);border-radius:190px 190px 16px 16px;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 115%,rgba(255,164,0,.45),transparent 62%),#2a1510;
+}
+.jb-record{
+  width:70%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;translate:-6% 8%;
+  background:
+    conic-gradient(from 30deg,transparent 0 40deg,rgba(255,255,255,.14) 55deg,transparent 70deg 210deg,rgba(255,255,255,.1) 225deg,transparent 240deg),
+    repeating-radial-gradient(circle,#121212 0 2px,#202020 2px 4px);
+  box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 0 3px var(--ink);
+  animation:spin 1.9s linear infinite;animation-play-state:paused;
+}
+.jb-record img{width:42%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:50%;background:var(--corn);padding:6%;border:3px solid var(--ink)}
+.jukebox.playing .jb-record{animation-play-state:running}
+.jb-arm{position:absolute;right:7%;top:5%;height:66%;width:auto;transform-origin:67% 11%;rotate:-22deg;transition:rotate .9s cubic-bezier(.3,1.3,.5,1);filter:drop-shadow(2px 4px 0 rgba(0,0,0,.35))}
+.jukebox.playing .jb-arm{rotate:13deg}
+.jb-panel{position:relative;z-index:1;margin:16px 6px 0;padding:12px;background:var(--paper);border:3px solid var(--ink);border-radius:14px}
+.jb-tracks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.jb-track{
+  width:100%;display:grid;grid-template-columns:auto 1fr;column-gap:10px;row-gap:2px;align-items:center;text-align:left;
+  font:inherit;color:var(--ink);cursor:pointer;background:#fffaf0;border:2px solid var(--ink);border-radius:9px;padding:8px 10px;
+  transition:background .2s,box-shadow .2s,transform .15s;
+}
+.jb-track:hover{transform:translateX(3px)}
+.jb-track[aria-pressed="true"]{background:var(--corn);box-shadow:3px 3px 0 var(--ink)}
+.jb-track .code{grid-row:span 2;font-family:var(--display);font-size:.95rem;background:var(--chili);color:#fff;border-radius:6px;padding:.3em .45em;line-height:1}
+.jb-track .t{font-family:var(--serif);font-size:1.02rem;line-height:1.15}
+.jb-track .m{font-size:.7rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+.jb-progress{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin:14px 2px 6px;font-size:.8rem;font-weight:800;font-variant-numeric:tabular-nums}
+#jb-seek{
+  --p:0%;-webkit-appearance:none;appearance:none;width:100%;height:10px;margin:0;cursor:pointer;
+  background:linear-gradient(90deg,var(--rosa) var(--p),#dfd0b1 var(--p));border:2px solid var(--ink);border-radius:999px;
+}
+#jb-seek::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--chili);border:3px solid var(--ink)}
+#jb-seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--chili);border:3px solid var(--ink)}
+.jb-controls{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:6px}
+.jb-btn{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--ink);
+  background:var(--paper);border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s;
+}
+.jb-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.jb-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.jb-btn svg{width:20px;height:20px;fill:currentColor}
+.jb-play{width:66px;height:66px;background:var(--chili);color:#fff}
+.jb-play svg{width:30px;height:30px}
+.i-pause{display:none}
+.jb-playing .i-play{display:none}
+.jb-playing .i-pause{display:block}
+.jb-grille{
+  position:relative;z-index:1;margin:16px 6px 0;height:88px;padding:10px 14px;overflow:hidden;
+  border:3px solid var(--ink);border-radius:12px;
+  background:repeating-linear-gradient(90deg,#2d1912 0 6px,#140b08 6px 9px);
+}
+.jb-eq{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}
+.jb-eq span{flex:1;max-width:16px;height:10%;border-radius:4px 4px 1px 1px;background:linear-gradient(to top,var(--cilantro),var(--corn) 55%,var(--chili));transition:height .09s linear}
+.jukebox.playing.no-analyser .jb-eq span{animation:eq .8s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -.17s)}
+@keyframes eq{from{height:14%}to{height:88%}}
+.chorus{
+  margin:0;max-width:520px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;
+  padding:20px 24px 22px;box-shadow:6px 6px 0 var(--ink);rotate:-1.2deg;
+}
+.chorus figcaption{font-family:var(--serif);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--chili)}
+.chorus-text{margin:8px 0 0;font-family:var(--hand);font-size:clamp(1.35rem,2.2vw,1.7rem);line-height:1.25}
+.lyrics{margin-top:22px;max-width:520px}
+.lyrics summary{
+  display:inline-flex;align-items:center;gap:.5em;cursor:pointer;list-style:none;font-weight:800;font-stretch:88%;
+  text-transform:uppercase;letter-spacing:.07em;font-size:.85rem;background:var(--ink);color:var(--paper);
+  border-radius:999px;padding:.6em 1.1em;
+}
+.lyrics summary::-webkit-details-marker{display:none}
+.lyrics summary::after{content:"▾";transition:rotate .2s}
+.lyrics[open] summary::after{rotate:180deg}
+.lyrics-body{margin-top:12px;max-height:380px;overflow:auto;background:rgba(246,236,214,.95);border:3px solid var(--ink);border-radius:14px;padding:16px 20px;font-size:.95rem;line-height:1.5}
+.lyr-title{font-family:var(--display);font-size:1.2rem;margin:0 0 4px}
+.lyrics-body h4{margin:14px 0 2px;font-family:var(--serif);font-weight:400;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--chili)}
+.lyrics-body p{margin:0}
+.jb-credit{margin-top:18px;font-size:.8rem;font-weight:700;color:rgba(26,18,16,.7)}
+
+/* mini player */
+.jb-mini{
+  position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:61;
+  display:flex;align-items:center;gap:10px;max-width:min(340px,calc(100vw - 24px));
+  background:var(--ink);color:var(--paper);border-radius:999px;padding:6px 6px 6px 6px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(160%);visibility:hidden;
+  transition:transform .4s cubic-bezier(.2,1.3,.4,1),visibility 0s .4s;
+}
+.jb-mini.show{transform:none;visibility:visible;transition:transform .4s cubic-bezier(.2,1.3,.4,1),visibility 0s}
+@media (max-width:720px){.jb-mini{bottom:calc(84px + env(safe-area-inset-bottom))}}
+.mini-rec{
+  flex:none;width:40px;height:40px;border-radius:50%;
+  background:center/52% no-repeat url(img/icon.png),repeating-radial-gradient(circle,#111 0 2px,#2a2a2a 2px 4px);
+  border:2px solid var(--corn);animation:spin 1.9s linear infinite;animation-play-state:paused;
+}
+.jb-playing .mini-rec{animation-play-state:running}
+.mini-t{display:grid;min-width:0;line-height:1.15;padding-right:4px}
+.mini-t small{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--corn);font-weight:800}
+.mini-t span{font-weight:800;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-btn{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--rosa);color:#fff;display:grid;place-items:center;cursor:pointer}
+.mini-btn svg{width:20px;height:20px;fill:currentColor}
+
 /* ───────── Objednat online ───────── */
 .order{background:var(--paper);--zig:var(--corn)}
 .order-head{text-align:center;max-width:720px;margin:0 auto clamp(32px,4vw,52px)}
@@ -975,6 +1115,7 @@ main{overflow-x:clip}
       <ul class="nav-links">
         <li><a href="#menu">Menu</a></li>
         <li><a href="#cantina">Cantina</a></li>
+        <li><a href="#rockola">Rockola</a></li>
         <li><a href="#objednat">Objednat</a></li>
         <li><a href="#o-nas">O nás</a></li>
         <li><a href="#catering">Catering</a></li>
@@ -1207,6 +1348,86 @@ main{overflow-x:clip}
   </div>
 </section>
 
+<!-- ═════════ LA ROCKOLA (jukebox) ═════════ -->
+<section class="section rockola zig" id="rockola" aria-labelledby="rockola-title">
+  <div class="wrap rockola-grid">
+    <div class="rockola-head">
+      <p class="kicker" data-reveal>La Rockola</p>
+      <h2 class="h2" id="rockola-title" data-reveal>Taco Boss má vlastní hymnu</h2>
+      <p class="lead" data-reveal style="--d:1">V každé pořádné cantině hraje rockola – mexický jukebox. Ta naše má dvě pecky o Taco Boss. Vyber písničku, pusť nahlas a zpívej s námi.</p>
+    </div>
+
+    <div class="jukebox" id="jukebox" data-reveal style="--d:1">
+      <span class="jb-badge">Taco Boss</span>
+      <div class="jb-window">
+        <div class="jb-record"><img src="img/icon.png" alt="" width="180" height="180" loading="lazy"></div>
+        <svg class="jb-arm" viewBox="0 0 60 150" aria-hidden="true">
+          <circle cx="40" cy="16" r="12" fill="#c9d1d6" stroke="#1a1210" stroke-width="3"/>
+          <path d="M40 16 30 118" stroke="#c9d1d6" stroke-width="7" stroke-linecap="round"/>
+          <rect x="20" y="114" width="20" height="26" rx="4" fill="#d62b2b" stroke="#1a1210" stroke-width="3" transform="rotate(-6 30 127)"/>
+        </svg>
+      </div>
+      <div class="jb-panel">
+        <ol class="jb-tracks" aria-label="Písničky">
+          <li><button type="button" class="jb-track" data-i="0" aria-pressed="true">
+            <span class="code">A1</span><span class="t">¿Quién es el jefe?</span><span class="m">mariachi · 2:58</span>
+          </button></li>
+          <li><button type="button" class="jb-track" data-i="1" aria-pressed="false">
+            <span class="code">A2</span><span class="t">¡Órale, Taco Boss!</span><span class="m">španělská kytara · 3:05</span>
+          </button></li>
+        </ol>
+        <div class="jb-progress">
+          <span id="jb-cur">0:00</span>
+          <input type="range" id="jb-seek" min="0" max="1000" value="0" step="1" aria-label="Posun v písničce">
+          <span id="jb-dur">2:58</span>
+        </div>
+        <div class="jb-controls">
+          <button type="button" class="jb-btn" id="jb-prev" aria-label="Předchozí písnička"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2.4v14H6zM9.5 12 18 5.5v13z"/></svg></button>
+          <button type="button" class="jb-btn jb-play" id="jb-play" aria-label="Přehrát"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg></button>
+          <button type="button" class="jb-btn" id="jb-next" aria-label="Další písnička"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 5H18v14h-2.4zM6 5.5l8.5 6.5L6 18.5z"/></svg></button>
+        </div>
+      </div>
+      <div class="jb-grille" aria-hidden="true"><div class="jb-eq" id="jb-eq"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span><span style="--i:13"></span></div></div>
+      <audio id="jb-audio" preload="none" src="audio/quien-es-el-jefe.mp3"></audio>
+    </div>
+
+    <div class="rockola-extra">
+      <figure class="chorus" data-reveal style="--d:2">
+        <figcaption>Refrén · zpívej s námi</figcaption>
+        <blockquote class="chorus-text" data-song="jefe">¿Quién es el jefe? Kdo drží prim?<br>Taco Boss otvírá dveře všem!<br>Stříkni limetku, ¡qué sabroso!,<br>tohle je jídlo opravdu grandioso!</blockquote>
+        <blockquote class="chorus-text" data-song="orale" hidden>¡Órale, Taco Boss!<br>Tacos, oheň, corazón.<br>¡Órale, Taco Boss!<br>V Hradci vládne el sabor.</blockquote>
+      </figure>
+      <details class="lyrics" data-reveal style="--d:3">
+        <summary>Celý text písně</summary>
+        <div class="lyrics-body">
+          <div class="lyr" data-song="jefe">
+            <p class="lyr-title">¿Quién es el jefe?</p>
+            <h4>Intro</h4><p>¡Arriba, arriba! ¡Ándale!<br>Město spalo, břicho kručelo… ale teď?<br>¡Llegó el patrón!</p>
+            <h4>Sloka 1</h4><p>Zapomeň na suché housky a nudný oběd,<br>přichází mexická vlna, co změní tvůj svět!<br>Habanero svítí, čerstvý koriandr voní,<br>zvony na hladné žaludky právě zvoní.<br>Pikantní salsa a skvělá nálada,<br>Taco Boss otvírá, to bude paráda!</p>
+            <h4>Refrén</h4><p>¿Quién es el jefe? Kdo drží prim?<br>Taco Boss otvírá dveře všem!<br>Stříkni limetku, ¡qué sabroso!,<br>tohle je jídlo opravdu grandioso!<br>Taco Boss – šéf tvojí chuti,<br>každé jedno sousto tě k tanci donutí!</p>
+            <h4>Sloka 2</h4><p>Tortilla teplá jak mexické slunce,<br>šťavnaté maso a guacamole v misce.<br>Chceš to suave, nebo pořádně picante?<br>Stav se k nám na jídlo, mi amigo, pasa adelante!<br>Od nachos po burrito, čerstvé ingredience máme,<br>dneska se nešetří, dneska to rozjíždíme!</p>
+            <h4>Bridge</h4><p>Jedna kapka salsy, ¡ay, caramba!,<br>v břiše ti okamžitě začne tancovat salsa.<br>Křikni ¡Salud!, zvedni svou sklenici,<br>Taco Boss je nová hvězda v ulici!</p>
+            <h4>Refrén</h4><p>¿Quién es el jefe? Kdo drží prim? …</p>
+            <h4>Outro</h4><p>Dveře jsou dokořán, stoly se prohýbají,<br>v Taco Bossu se všichni skvěle mají.<br>¡Bienvenidos, amigos! Každý je tu hostem,<br>dneska to oslavíme s pořádným gustem!<br>¡Viva Taco Boss! ¡Olé!</p>
+          </div>
+          <div class="lyr" data-song="orale" hidden>
+            <p class="lyr-title">¡Órale, Taco Boss!</p>
+            <h4>Intro</h4><p>¡Órale!</p>
+            <h4>Sloka 1</h4><p>Na Pražské třídě v Hradci<br>zní kytara každý den,<br>voní maso, tortilla,<br>kdo jde kolem, je ztracen.<br>Knír a brýle, úsměv k tomu,<br>„¡Hola, amigo, pojď dál!“<br>To je Alejandro, el patrón,<br>co nám kus Mexika dal.</p>
+            <h4>Refrén</h4><p>¡Órale, Taco Boss!<br>Tacos, oheň, corazón.<br>¡Órale, Taco Boss!<br>V Hradci vládne el sabor.<br>Guacamole, pico de gallo,<br>salsa pálí jako hrom,<br>¡Órale, Taco Boss!<br>Alejandro, ty jsi El Boss!</p>
+            <h4>Sloka 2</h4><p>Burrito, quesadilla,<br>nachos, co sýrem tečou,<br>vyber kartu z loteríe,<br>tady všichni vyhrajou.<br>Jedna salsa – suavecita,<br>druhá z pekla přiletí,<br>horchata a michelada<br>tě zas rychle ochladí.</p>
+            <h4>Sólo</h4><p>(trumpety, tleskání, ¡ajúa!)</p>
+            <h4>Sloka 3</h4><p>Z festivalu na festival<br>jede jeho taco bar,<br>z Ostravy až do Evropy<br>vozí fiestu, žádný žal.<br>Svatby, firmy, narozky,<br>kde je hlad, tam dorazí,<br>hecho con amor en Hradec,<br>láska se tu neředí.</p>
+            <h4>Refrén</h4><p>¡Órale, Taco Boss! …</p>
+            <h4>Outro</h4><p>¡Salud! Na zdraví!<br>Tacoboss tečka cé zet,<br>tam na tebe čeká El Boss!<br>¡Órale!</p>
+          </div>
+        </div>
+      </details>
+      <p class="jb-credit">Hudba a texty: Taco Boss × Suno</p>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════ OBJEDNAT ONLINE ═════════ -->
 <section class="section order zig" id="objednat">
   <div class="wrap">
@@ -1360,6 +1581,12 @@ main{overflow-x:clip}
   </div>
 </footer>
 
+<div class="jb-mini" id="jb-mini" aria-hidden="true">
+  <a class="mini-rec" href="#rockola" aria-label="Zpět k rockole"></a>
+  <span class="mini-t"><small>Hraje</small><span id="jb-mini-t">¿Quién es el jefe?</span></span>
+  <button type="button" class="mini-btn" id="jb-mini-play" aria-label="Pozastavit"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg></button>
+</div>
+
 <nav class="mbar" aria-label="Rychlé odkazy">
   <a href="#menu">Menu</a>
   <a href="#kde">Kde jsme</a>
@@ -1480,6 +1707,128 @@ shuffleBtn.addEventListener("click", () => {
   };
   tick();
 });
+/* ── La Rockola ── */
+(() => {
+  const TRACKS = [
+    { src: "audio/quien-es-el-jefe.mp3", title: "¿Quién es el jefe?", id: "jefe" },
+    { src: "audio/orale-taco-boss.mp3", title: "¡Órale, Taco Boss!", id: "orale" },
+  ];
+  const box = document.getElementById("jukebox");
+  const audio = document.getElementById("jb-audio");
+  const playBtn = document.getElementById("jb-play");
+  const seek = document.getElementById("jb-seek");
+  const curEl = document.getElementById("jb-cur");
+  const durEl = document.getElementById("jb-dur");
+  const mini = document.getElementById("jb-mini");
+  const miniT = document.getElementById("jb-mini-t");
+  const miniBtn = document.getElementById("jb-mini-play");
+  const trackBtns = [...document.querySelectorAll(".jb-track")];
+  const bars = [...document.querySelectorAll("#jb-eq span")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cur = 0, ctx, analyser, data, raf, boxVisible = true;
+
+  const fmt = t => isFinite(t) ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : "0:00";
+
+  function select(i, autoplay) {
+    cur = (i + TRACKS.length) % TRACKS.length;
+    const t = TRACKS[cur];
+    audio.src = t.src;
+    trackBtns.forEach((b, j) => b.setAttribute("aria-pressed", j === cur));
+    document.querySelectorAll("[data-song]").forEach(el => { el.hidden = el.dataset.song !== t.id; });
+    durEl.textContent = trackBtns[cur].querySelector(".m").textContent.split("· ")[1];
+    curEl.textContent = "0:00";
+    seek.value = 0; seek.style.setProperty("--p", "0%");
+    miniT.textContent = t.title;
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: t.title, artist: "Taco Boss", album: "La Rockola",
+        artwork: [{ src: "img/icon.png", sizes: "180x180", type: "image/png" }],
+      });
+    }
+    if (autoplay) play();
+  }
+
+  function setupAnalyser() {
+    if (ctx || reduce) return;
+    try {
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const srcNode = ctx.createMediaElementSource(audio);
+      analyser = ctx.createAnalyser();
+      analyser.fftSize = 64;
+      analyser.smoothingTimeConstant = 0.7;
+      data = new Uint8Array(analyser.frequencyBinCount);
+      srcNode.connect(analyser);
+      analyser.connect(ctx.destination);
+    } catch (err) {
+      ctx = null;
+      box.classList.add("no-analyser");
+    }
+  }
+
+  function draw() {
+    analyser.getByteFrequencyData(data);
+    bars.forEach((b, i) => {
+      const v = data[1 + Math.floor(i * 1.4)] / 255;
+      b.style.height = `${8 + v * 90}%`;
+    });
+    raf = requestAnimationFrame(draw);
+  }
+
+  function play() {
+    setupAnalyser();
+    if (ctx && ctx.state === "suspended") ctx.resume();
+    audio.play().catch(() => {});
+  }
+  const toggle = () => (audio.paused ? play() : audio.pause());
+
+  playBtn.addEventListener("click", toggle);
+  miniBtn.addEventListener("click", toggle);
+  document.getElementById("jb-prev").addEventListener("click", () => select(cur - 1, true));
+  document.getElementById("jb-next").addEventListener("click", () => select(cur + 1, true));
+  trackBtns.forEach((b, i) => b.addEventListener("click", () => (i === cur ? toggle() : select(i, true))));
+
+  function updateMini() { mini.classList.toggle("show", !audio.paused && !boxVisible); mini.setAttribute("aria-hidden", !mini.classList.contains("show")); }
+
+  audio.addEventListener("play", () => {
+    box.classList.add("playing");
+    document.body.classList.add("jb-playing");
+    playBtn.setAttribute("aria-label", "Pozastavit");
+    if (analyser && !raf) draw();
+    updateMini();
+  });
+  audio.addEventListener("pause", () => {
+    box.classList.remove("playing");
+    document.body.classList.remove("jb-playing");
+    playBtn.setAttribute("aria-label", "Přehrát");
+    cancelAnimationFrame(raf); raf = null;
+    bars.forEach(b => { b.style.height = ""; });
+    updateMini();
+  });
+  audio.addEventListener("ended", () => select(cur + 1, true));
+  audio.addEventListener("loadedmetadata", () => { durEl.textContent = fmt(audio.duration); });
+  audio.addEventListener("timeupdate", () => {
+    if (!audio.duration) return;
+    const pct = audio.currentTime / audio.duration;
+    seek.value = Math.round(pct * 1000);
+    seek.style.setProperty("--p", `${pct * 100}%`);
+    curEl.textContent = fmt(audio.currentTime);
+  });
+  seek.addEventListener("input", () => {
+    seek.style.setProperty("--p", `${seek.value / 10}%`);
+    if (audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration;
+  });
+
+  new IntersectionObserver(([en]) => { boxVisible = en.isIntersecting; updateMini(); }, { threshold: 0.15 }).observe(box);
+
+  if ("mediaSession" in navigator) {
+    navigator.mediaSession.setActionHandler("play", play);
+    navigator.mediaSession.setActionHandler("pause", () => audio.pause());
+    navigator.mediaSession.setActionHandler("previoustrack", () => select(cur - 1, true));
+    navigator.mediaSession.setActionHandler("nexttrack", () => select(cur + 1, true));
+  }
+  select(0, false);
+})();
+
 </script>
 </body>
 </html>
