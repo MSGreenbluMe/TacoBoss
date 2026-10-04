@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>¡Orden! – hra od Taco Boss | Hradec Králové</title>
+<meta name="description" content="Poskládej zákazníkovi tacos, burrito, quesadillu nebo nachos přesně podle lístku. Vtipná hra od mexické restaurace Taco Boss v Hradci Králové – a naučíš se naše menu.">
+<link rel="canonical" href="https://www.tacoboss.cz/hry/orden/">
+<meta name="theme-color" content="#1a1210">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taco Boss">
+<meta property="og:title" content="¡Orden! – hra od Taco Boss">
+<meta property="og:description" content="Zákazník čeká! Poskládej objednávku podle lístku a zazvoň. Kolik 🌶️ dáš ty?">
+<meta property="og:url" content="https://www.tacoboss.cz/hry/orden/">
+<meta property="og:image" content="https://www.tacoboss.cz/img/og.jpg">
+<meta property="og:locale" content="cs_CZ">
+<link rel="icon" type="image/png" href="/img/icon.png">
+<link rel="apple-touch-icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat+Brush&family=Chango&family=Rye&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hry/shared/game.css">
+<style>
+.orden{
+  position:absolute;inset:0;display:flex;flex-direction:column;gap:7px;
+  padding:58px 10px calc(10px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto;
+}
+.pill.streak[data-on="0"]{opacity:.5}
+.pill.streak[data-on="1"]{background:var(--marigold)}
+
+/* zákazník */
+.customer{display:flex;align-items:center;gap:10px}
+.customer.arrive{animation:arrive .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes arrive{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+.avatar{flex:none;width:46px;height:46px;border-radius:50%;border:3px solid var(--ink);display:grid;place-items:center;font-size:1.55rem;box-shadow:2px 2px 0 var(--ink)}
+.bubble{position:relative;flex:1;min-width:0;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:5px 10px 6px;font-size:.8rem;line-height:1.25}
+.bubble::before{content:"";position:absolute;left:-8px;top:50%;translate:0 -50%;border:7px solid transparent;border-right-color:var(--ink);border-left:0}
+.bubble b{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.patience{--p:100%;height:10px;border:2px solid var(--ink);border-radius:999px;overflow:hidden;background:#fff;flex:none}
+.patience i{display:block;height:100%;width:var(--p);background:var(--cilantro);transition:width .1s linear,background .3s}
+.patience[data-level="mid"] i{background:var(--marigold)}
+.patience[data-level="low"] i{background:var(--chili)}
+
+/* lístek */
+.ticket{
+  flex:none;position:relative;background:#fffdf5;border:3px solid var(--ink);border-radius:8px;padding:6px 12px 9px;
+  box-shadow:3px 3px 0 var(--ink);text-align:left;
+}
+.t-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.t-hint{border:2px solid var(--ink);background:var(--corn);border-radius:999px;font-weight:800;font-size:.7rem;padding:.2em .7em;cursor:pointer;text-transform:none;letter-spacing:0}
+.t-hint[hidden]{display:none}
+.t-main{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:2px}
+.t-dish{font-family:var(--serif);font-size:1.45rem;line-height:1.05}
+.t-protein{font-family:var(--display);font-size:1rem;background:var(--ink);color:var(--paper);border-radius:6px;padding:.05em .5em}
+.t-note{font-family:var(--hand);font-size:1.05rem;color:var(--chili)}
+.t-note[hidden]{display:none}
+.t-mods{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.t-mods:empty{display:none}
+.mod{border:2px solid var(--chili);color:var(--chili);border-radius:5px;padding:.05em .5em;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;rotate:-2deg;background:rgba(214,43,43,.06)}
+.t-recipe{display:flex;flex-wrap:wrap;gap:3px 8px;margin-top:6px;padding-top:6px;border-top:2px dashed rgba(26,18,16,.25)}
+.t-recipe[hidden]{display:none}
+.r-item{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700}
+.r-item img{width:22px;height:22px}
+.r-item b{color:var(--chili)}
+
+/* talíř */
+.plate-wrap{position:relative;flex:1;min-height:84px;display:grid;place-items:center}
+.plate{
+  width:100%;height:100%;max-height:170px;border-radius:50%;border:3px solid var(--ink);
+  background:radial-gradient(ellipse at 50% 50%,#fff 0 54%,#e7e0d0 55%,#fff 62% 100%);
+  display:grid;place-items:center;padding:6px 26px;box-shadow:0 6px 0 rgba(26,18,16,.15);
+}
+.plate.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.plate-items{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:2px 4px;max-height:100%;overflow:hidden}
+.plate-empty{font-family:var(--hand);font-size:1.1rem;color:var(--ink-soft)}
+.chip{position:relative;width:42px;height:42px;border:0;background:none;padding:0;cursor:pointer;border-radius:50%}
+.chip img{width:100%;height:100%;pointer-events:none}
+.chip .n{position:absolute;right:-4px;bottom:-2px;background:var(--ink);color:#fff;font-size:.7rem;border-radius:999px;padding:0 .35em;line-height:1.4}
+.chip.bad{background:rgba(214,43,43,.18);outline:3px solid var(--chili)}
+.chip.ghost{opacity:.5;filter:grayscale(.9);outline:2px dashed var(--chili);cursor:default}
+.stamp{
+  position:absolute;left:50%;top:50%;translate:-50% -50%;pointer-events:none;opacity:0;
+  font-family:var(--display);font-size:1.6rem;border:4px solid currentColor;border-radius:10px;padding:.1em .5em;rotate:-10deg;background:rgba(255,253,245,.92);white-space:nowrap;
+}
+.stamp.ok{color:var(--cilantro)}
+.stamp.late{color:var(--chili);font-size:1.25rem}
+.stamp.show{animation:stamp .9s ease-out forwards}
+@keyframes stamp{0%{opacity:0;scale:2}15%{opacity:1;scale:1}75%{opacity:1}100%{opacity:0}}
+
+/* tác */
+.tray{flex:none;display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.ing{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:1px;min-height:56px;
+  background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:4px 2px 3px;box-shadow:2px 2px 0 var(--ink);
+  font-size:.58rem;font-weight:800;line-height:1.05;cursor:pointer;color:var(--ink);
+}
+.ing img{width:30px;height:30px;pointer-events:none}
+.ing:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.ing kbd{display:none}
+@media (hover:hover) and (pointer:fine){
+  .ing kbd{display:block;position:absolute;left:3px;top:2px;font:800 .55rem var(--body);color:var(--ink-soft)}
+}
+.actions{flex:none;display:flex;gap:8px}
+.listo{
+  flex:1;font-family:var(--display);font-size:1.45rem;background:var(--cilantro);color:#fff;border:3px solid var(--ink);
+  border-radius:999px;padding:.35em .8em;box-shadow:4px 4px 0 var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4em;
+}
+.listo:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.clear{flex:none;border:3px solid var(--ink);background:var(--paper);border-radius:999px;padding:0 .9em;font-weight:800;font-size:.75rem;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+
+@media (max-height:720px){
+  .orden{gap:5px;padding-top:52px}
+  .avatar{width:38px;height:38px;font-size:1.25rem}
+  .bubble{font-size:.74rem;padding:4px 9px}
+  .bubble b{display:inline;margin-right:5px}
+  .t-dish{font-size:1.25rem}
+  .r-item .lbl{display:none}
+  .r-item img{width:26px;height:26px}
+  .t-recipe{gap:2px 6px;margin-top:4px;padding-top:4px}
+  .ing{min-height:50px}
+  .ing img{width:26px;height:26px}
+  .listo{font-size:1.2rem;padding:.25em .8em}
+}
+.how-list{text-align:left;margin:0 auto 14px;padding-left:1.2em;max-width:30ch;font-size:.88rem;font-weight:600}
+.how-list li{margin:2px 0}
+</style>
+<script type="module" src="game.js"></script>
+</head>
+<body data-screen="start">
+<div class="app">
+  <header class="g-top">
+    <a class="g-back" href="/#hry"><img src="/img/icon.png" alt="" width="34" height="34"><span>← tacoboss.cz</span></a>
+    <span class="g-title">¡Orden!</span>
+    <button type="button" class="g-mute" id="g-mute" aria-pressed="false" aria-label="Vypnout zvuk">
+      <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+      <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4Z" fill="currentColor"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+    </button>
+  </header>
+
+  <main class="g-stage" id="stage">
+    <!-- start -->
+    <section class="screen" data-screen="start" aria-labelledby="g-h1">
+      <div class="g-card">
+        <img class="g-mascot" src="/img/mascot.webp" alt="El Boss" width="800" height="574">
+        <p class="g-kicker">Hra č. 2 · 90 vteřin</p>
+        <h1 class="g-h1" id="g-h1">¡Orden!</h1>
+        <p class="g-how">Zákazník čeká! Poskládej jídlo přesně podle lístku a zazvoň.</p>
+        <ol class="how-list">
+          <li>Ťukej na ingredience, ťuknutím na talíři je zase odebereš.</li>
+          <li>Hotovo? Zvoň <b>¡Listo!</b></li>
+          <li>Nevíš recept? Tlačítko <b>?</b> ho ukáže, ale stojí 2 s trpělivosti.</li>
+        </ol>
+        <button type="button" class="btn btn-chili btn-big" data-act="play">¡Hrát!</button>
+        <p class="g-best">Tvůj rekord: <b data-best>0</b> 🌶️</p>
+      </div>
+    </section>
+
+    <!-- hra -->
+    <section class="screen" data-screen="play" aria-label="Kuchyně">
+      <div class="hud">
+        <span class="pill time"><span id="h-time">1:30</span></span>
+        <span class="hud-mid" style="display:flex;gap:6px">
+          <span class="pill"><span id="h-score">0</span> 🌶️</span>
+          <span class="pill streak" data-on="0"><span id="h-streak">🔥 0</span></span>
+        </span>
+        <button type="button" class="icon-btn" data-act="pause" aria-label="Pauza"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z"/></svg></button>
+      </div>
+      <div class="orden">
+        <div class="customer" id="customer" aria-live="polite">
+          <span class="avatar" id="c-avatar" aria-hidden="true">🤘</span>
+          <p class="bubble"><b id="c-name">Zákazník</b><span id="c-line">…</span></p>
+        </div>
+        <div class="patience" id="patience" role="progressbar" aria-label="Trpělivost zákazníka"><i></i></div>
+        <div class="ticket" aria-live="polite">
+          <div class="t-head"><span id="t-no">Objednávka #1</span><button type="button" class="t-hint" id="t-hint" aria-label="Ukázat recept (stojí 2 s)" hidden>? recept</button></div>
+          <div class="t-main"><span class="t-dish" id="t-dish">Tacos</span><span class="t-protein" id="t-protein">hovězí</span><span class="t-note" id="t-note" hidden></span></div>
+          <div class="t-mods" id="t-mods"></div>
+          <div class="t-recipe" id="t-recipe"></div>
+        </div>
+        <div class="plate-wrap">
+          <div class="plate" id="plate"><div class="plate-items" id="plate-items"></div></div>
+          <p class="stamp" id="stamp" aria-live="assertive"></p>
+        </div>
+        <div class="tray" id="tray" aria-label="Ingredience"></div>
+        <div class="actions">
+          <button type="button" class="clear" id="clear">Vysypat</button>
+          <button type="button" class="listo" id="listo">🔔 ¡Listo!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- výsledek -->
+    <section class="screen" data-screen="result" aria-live="polite">
+      <div class="g-card result-card">
+        <p class="record" data-record hidden>¡Nuevo récord!</p>
+        <p class="r-score"><span data-score>0</span> 🌶️</p>
+        <div class="rank-card" data-rank-level="1"><div class="face"><img src="/img/mascot.webp" alt="" width="800" height="574"><span class="name" data-rank>Taquero</span></div></div>
+        <p class="r-best">Tvoje hodnost: <b data-rank>Taquero</b> · rekord <b data-best>0</b> 🌶️</p>
+        <div class="r-btns">
+          <button type="button" class="btn btn-chili" data-act="again">Hrát znovu</button>
+          <a class="btn" href="/hry/el-boss-chyta/">Zkus druhou hru: El Boss chytá</a>
+          <button type="button" class="btn btn-corn" data-act="share" hidden>Sdílet</button>
+        </div>
+        <a class="r-menu" href="/#menu">Dostal jsi hlad? Mrkni na menu →</a>
+      </div>
+    </section>
+
+    <div class="overlay" id="pause" hidden>
+      <div class="g-card">
+        <p class="g-h1" style="font-size:2.2rem">Pauza</p>
+        <button type="button" class="btn btn-chili" data-act="resume">Pokračovat</button>
+        <button type="button" class="btn" data-act="quit">Ukončit hru</button>
+      </div>
+    </div>
+    <div class="countdown" id="countdown" hidden aria-live="assertive"></div>
+  </main>
+</div>
+</body>
+</html>

@@ -926,6 +926,27 @@ main{overflow-x:clip}
 .mini-btn{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--rosa);color:#fff;display:grid;place-items:center;cursor:pointer}
 .mini-btn svg{width:20px;height:20px;fill:currentColor}
 
+/* ───────── Los Juegos ───────── */
+.juegos{--zig:var(--paper-2);background-color:var(--paper-2)}
+.juegos-head{max-width:640px;margin-bottom:clamp(32px,4vw,52px)}
+@media (min-width:1000px){.juegos .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}.juegos-head{margin-bottom:0}}
+.juegos-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,340px));gap:clamp(28px,5vw,64px)}
+@media (max-width:640px){.juegos-grid{grid-template-columns:minmax(0,340px);justify-content:center}}
+.juego-link{display:block;text-decoration:none;color:inherit}
+.juego .loteria{max-width:250px;transform:rotate(-2deg);transition:transform .35s cubic-bezier(.2,1.3,.4,1),box-shadow .25s}
+.juego:nth-child(2) .loteria{transform:rotate(1.6deg)}
+.juego-link:hover .loteria,.juego-link:focus-visible .loteria{transform:rotate(0) translateY(-8px) scale(1.03);box-shadow:10px 12px 0 var(--ink)}
+.juego-art{position:relative;overflow:hidden}
+.juego-art img{position:absolute;left:50%;bottom:4%;width:78%;height:auto;translate:-50% 0;filter:drop-shadow(2px 3px 0 rgba(26,18,16,.3))}
+.juego-art .fall{position:absolute;width:22%;height:auto;top:-20%;animation:juego-fall 2.8s linear infinite}
+.juego-art .f1{left:14%;animation-delay:-.4s}
+.juego-art .f2{left:44%;animation-delay:-1.5s}
+.juego-art .f3{left:70%;animation-delay:-2.3s}
+@keyframes juego-fall{from{transform:translateY(0) rotate(0)}to{transform:translateY(420%) rotate(160deg)}}
+.juego h3{display:flex;align-items:baseline;gap:.5em;margin:1.1em 0 .3em;font-family:var(--display);font-weight:400;font-size:1.5rem}
+.juego-time{font-family:var(--body);font-size:.75rem;font-weight:800;letter-spacing:.08em;background:var(--ink);color:var(--paper);border-radius:999px;padding:.2em .7em}
+.juego p{max-width:34ch;color:var(--ink-soft);margin-bottom:16px}
+
 /* ───────── Objednat online ───────── */
 .order{background:var(--paper);--zig:var(--corn)}
 .order-head{text-align:center;max-width:720px;margin:0 auto clamp(32px,4vw,52px)}
@@ -1116,6 +1137,7 @@ main{overflow-x:clip}
         <li><a href="#menu">Menu</a></li>
         <li><a href="#cantina">Cantina</a></li>
         <li><a href="#rockola">Rockola</a></li>
+        <li><a href="#hry">Hry</a></li>
         <li><a href="#objednat">Objednat</a></li>
         <li><a href="#o-nas">O nás</a></li>
         <li><a href="#catering">Catering</a></li>
@@ -1425,6 +1447,61 @@ main{overflow-x:clip}
       </details>
       <p class="jb-credit">Hudba a texty: Taco Boss × Suno</p>
     </div>
+  </div>
+</section>
+
+<!-- ═════════ LOS JUEGOS (hry) ═════════ -->
+<section class="section juegos halftone zig" id="hry">
+  <div class="wrap">
+    <div class="juegos-head" data-reveal>
+      <p class="kicker">Los Juegos</p>
+      <h2 class="h2">Zahraj si s El Bossem</h2>
+      <p class="lead">Dvě krátké hry do mobilu. Chytej ingredience, nebo poskládej objednávku jako opravdový taquero. Kolik 🌶️ dáš ty?</p>
+    </div>
+    <ul class="juegos-grid">
+      <li class="juego" data-reveal>
+        <a class="juego-link" href="/hry/el-boss-chyta/">
+          <div class="loteria"><div class="face" style="--bg:#ffa400">
+            <span class="num">5</span>
+            <div class="art juego-art">
+              <svg class="fall f1" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="#4f9e24" stroke="#1a1210" stroke-width="3"/><circle cx="32" cy="32" r="17" fill="#c8e88a"/><path d="M32 15v34M15 32h34" stroke="#8fc24a" stroke-width="2"/></svg>
+              <svg class="fall f2" viewBox="0 0 64 64" aria-hidden="true"><path fill="#1f9d57" stroke="#1a1210" stroke-width="3" stroke-linejoin="round" d="M14 22c10-5 19 1 23 11s8 17 19 19c-12 5-27-1-33-11-4-7-11-13-9-19Z"/></svg>
+              <svg class="fall f3" viewBox="0 0 64 64" aria-hidden="true"><path fill="#ffd23f" stroke="#1a1210" stroke-width="3" stroke-linejoin="round" d="M6 46 46 18l12 8v20Z"/></svg>
+              <img src="img/mascot.webp" alt="" width="800" height="574" loading="lazy">
+            </div>
+            <span class="name">El Boss chytá</span>
+          </div></div>
+          <h3>El Boss chytá <span class="juego-time">60 s</span></h3>
+          <p>Chytej ingredience do tortilly, knedlíky a ponožky nech padat. Zlaté avokádo je za pět!</p>
+          <span class="btn btn-chili">¡Hrát!</span>
+        </a>
+      </li>
+      <li class="juego" data-reveal style="--d:1">
+        <a class="juego-link" href="/hry/orden/">
+          <div class="loteria"><div class="face" style="--bg:#0fa3a3">
+            <span class="num">6</span>
+            <div class="art juego-art">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <g transform="rotate(-6 50 50)">
+                  <path fill="#fffdf5" stroke="#1a1210" stroke-width="3.5" stroke-linejoin="round" d="M22 14h56v66l-7-5-7 5-7-5-7 5-7-5-7 5-7-5-7 5Z"/>
+                  <path stroke="#1a1210" stroke-width="3" stroke-linecap="round" d="M31 28h30"/>
+                  <path stroke="#d62b2b" stroke-width="3" stroke-linecap="round" d="M31 40h22"/>
+                  <path stroke="#1a1210" stroke-width="2.5" stroke-linecap="round" opacity=".45" d="M31 52h34M31 61h26"/>
+                </g>
+                <path fill="#ffd23f" stroke="#1a1210" stroke-width="3.5" stroke-linejoin="round" d="M64 98c0-16 9-26 22-26s22 10 22 26Z"/>
+                <rect x="58" y="96" width="56" height="9" rx="3" fill="#1a1210"/>
+                <circle cx="86" cy="68" r="5" fill="#1a1210"/>
+                <path stroke="#f6ecd6" stroke-width="3" stroke-linecap="round" d="M74 86c2-5 5-8 9-9"/>
+              </svg>
+            </div>
+            <span class="name">¡Orden!</span>
+          </div></div>
+          <h3>¡Orden! <span class="juego-time">90 s</span></h3>
+          <p>Poskládej tacos, burrito, quesadillu nebo nachos přesně podle lístku a zazvoň. Naučíš se naše menu.</p>
+          <span class="btn btn-chili">¡Hrát!</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 

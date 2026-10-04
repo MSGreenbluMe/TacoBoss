@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.tacoboss.cz/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://www.tacoboss.cz/img/og.jpg</image:loc></image:image>
@@ -15,5 +15,17 @@
     <image:image><image:loc>https://www.tacoboss.cz/img/food/vegan-quesadilla.webp</image:loc></image:image>
     <image:image><image:loc>https://www.tacoboss.cz/img/food/nachos.webp</image:loc></image:image>
     <image:image><image:loc>https://www.tacoboss.cz/img/logo.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://www.tacoboss.cz/hry/el-boss-chyta/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.tacoboss.cz/hry/orden/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
